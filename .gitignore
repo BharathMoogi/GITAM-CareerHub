@@ -1,0 +1,70 @@
+# ── Python ─────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+.Python
+
+# ── Virtual environments ────────────────────────────────────────────────────
+.venv/
+venv/
+env/
+ENV/
+
+# ── Environment files (NEVER commit secrets) ────────────────────────────────
+.env
+.env.local
+.env.development
+.env.test
+!.env.example
+
+# ── Database files ──────────────────────────────────────────────────────────
+*.db
+*.sqlite
+*.sqlite3
+dev_careerhub.db
+
+# ── Test & coverage artifacts ───────────────────────────────────────────────
+.pytest_cache/
+.coverage
+htmlcov/
+coverage.xml
+*.cover
+bandit-report.json
+test-results/
+
+# ── IDE & tooling ───────────────────────────────────────────────────────────
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# ── Docker runtime data ─────────────────────────────────────────────────────
+uploads/
+
+# ── Log files ───────────────────────────────────────────────────────────────
+*.log
+*.pid
+
+# ── Celery beat schedule ────────────────────────────────────────────────────
+celerybeat-schedule
+celerybeat.pid
+
+# ── Build artifacts ─────────────────────────────────────────────────────────
+dist/
+build/
+*.egg-info/
+
+# ── Node (if frontend is added later) ──────────────────────────────────────
+node_modules/
+.next/
+.nuxt/
+
+# ── SSL certs (never commit) ────────────────────────────────────────────────
+nginx/certs/
+
+# ── Grafana provisioning secrets ───────────────────────────────────────────
+grafana/provisioning/datasources/*.secret.*

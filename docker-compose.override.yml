@@ -1,0 +1,70 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# Docker Compose Override — Local Development Overrides
+#
+# This file is automatically merged with docker-compose.yml by Docker Compose.
+# DO NOT commit secrets here. Use .env for environment variables.
+# ─────────────────────────────────────────────────────────────────────────────
+
+version: "3.9"
+
+services:
+
+  # ── Local dev API: mount source code for hot reload ──────────────────────────
+  api:
+    build:
+      context: backend
+      dockerfile: Dockerfile
+      target: builder          # Use builder stage (includes dev tools)
+    environment:
+      ENVIRONMENT: development
+      DEBUG: "true"
+      LOG_LEVEL: DEBUG
+      FEATURE_RATE_LIMITING: "false"   # Disable rate limiting locally
+      DATABASE_URL: "sqlite+aiosqlite:///./dev_careerhub.db"
+    command:
+      - "python"
+      - "-m"
+      - "uvicorn"
+      - "app.main:app"
+      - "--host"
+      - "0.0.0.0"
+      - "--port"
+      - "8000"
+      - "--reload"
+      - "--reload-dir"
+      - "/app/app"
+    volumes:
+      - ./backend:/app           # Hot reload: mount entire source
+      - ./backend/uploads:/app/uploads
+    ports:
+      - "8000:8000"
+
+  # ── Skip Celery in local dev (run tasks synchronously) ───────────────────────
+  celery:
+    profiles: ["celery"]         # Only starts when explicitly: docker compose --profile celery up
+
+  celerybeat:
+    profiles: ["celery"]
+
+  # ── Expose Postgres directly for DB tools (DBeaver, pgAdmin) ─────────────────
+  postgres:
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: "dev_password"
+
+  # ── Expose Redis directly for inspection ────────────────────────────────────
+  redis:
+    ports:
+      - "6379:6379"
+
+  # ── Skip Nginx in local dev (access API directly on 8000) ────────────────────
+  nginx:
+    profiles: ["nginx"]
+
+  # ── Skip Prometheus/Grafana in local dev ─────────────────────────────────────
+  prometheus:
+    profiles: ["monitoring"]
+
+  grafana:
+    profiles: ["monitoring"]

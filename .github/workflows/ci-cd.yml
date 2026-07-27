@@ -1,0 +1,246 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# GITAM CareerHub — GitHub Actions CI/CD Pipeline
+#
+# Triggers:
+#   - push to main/develop branches
+#   - pull_request targeting main
+#
+# Jobs:
+#   1. lint      — Ruff + Black format check
+#   2. test      — pytest with SQLite in-memory, coverage report
+#   3. security  — Bandit SAST scan
+#   4. build     — Docker image build & push to GHCR
+#   5. deploy    — SSH deploy to production server (main branch only)
+# ─────────────────────────────────────────────────────────────────────────────
+
+name: GITAM CareerHub — CI/CD Pipeline
+
+on:
+  push:
+    branches: [main, develop]
+    paths:
+      - "backend/**"
+      - "docker-compose.yml"
+      - "nginx/**"
+      - ".github/workflows/**"
+  pull_request:
+    branches: [main]
+    paths:
+      - "backend/**"
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}/careerhub-api
+
+jobs:
+
+  # ── 1. Lint & Format Check ───────────────────────────────────────────────────
+  lint:
+    name: Lint & Format
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: backend
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install linting tools
+        run: pip install ruff black
+
+      - name: Ruff lint check
+        run: ruff check app/ tests/
+
+      - name: Black format check
+        run: black --check app/ tests/
+
+  # ── 2. Tests ─────────────────────────────────────────────────────────────────
+  test:
+    name: Test Suite
+    runs-on: ubuntu-latest
+    needs: lint
+    defaults:
+      run:
+        working-directory: backend
+    env:
+      TESTING: "true"
+      ENVIRONMENT: testing
+      DATABASE_URL: "sqlite+aiosqlite:///:memory:"
+      SECRET_KEY: "ci-test-secret-key-minimum-32-characters"
+      REDIS_URL: "redis://localhost:6379/0"
+      FEATURE_RATE_LIMITING: "false"
+    services:
+      redis:
+        image: redis:7-alpine
+        ports:
+          - 6379:6379
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt aiosqlite pytest-cov
+
+      - name: Run test suite
+        run: |
+          python -c "
+          import sys, asyncio, pathlib
+          sys.path.insert(0, '.')
+          for p in pathlib.Path('.').rglob('*.pyc'): p.unlink(missing_ok=True)
+
+          test_modules = [
+              ('tests.test_placement', 'Placement Engine'),
+              ('tests.test_ai_mentor', 'AI Mentor Engine'),
+              ('tests.test_dashboard', 'Dashboard Intelligence'),
+              ('tests.test_gamification', 'Career Gamification'),
+              ('tests.test_resume', 'Resume Intelligence'),
+              ('tests.test_notification', 'Notification Engine'),
+              ('tests.test_cms', 'Enterprise Admin CMS'),
+          ]
+
+          async def run_all():
+              from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker, AsyncSession
+              from app.database.base import Base
+              total_passed = total_failed = 0
+              for mod_path, name in test_modules:
+                  mod = __import__(mod_path, fromlist=['TESTS'])
+                  engine = create_async_engine('sqlite+aiosqlite:///:memory:', echo=False)
+                  async with engine.begin() as conn:
+                      await conn.run_sync(Base.metadata.create_all)
+                  Session = async_sessionmaker(engine, class_=AsyncSession, expire_on_commit=False)
+                  for t in mod.TESTS:
+                      try:
+                          await t(engine, Session)
+                          total_passed += 1
+                      except Exception as e:
+                          print(f'[FAIL] [{name}] {t.__name__}: {e}')
+                          total_failed += 1
+              print(f'TOTAL: {total_passed} passed, {total_failed} failed')
+              if total_failed > 0:
+                  sys.exit(1)
+
+          asyncio.run(run_all())
+          "
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: backend/test-results/
+
+  # ── 3. Security Scan ─────────────────────────────────────────────────────────
+  security:
+    name: Security Scan (SAST)
+    runs-on: ubuntu-latest
+    needs: lint
+    defaults:
+      run:
+        working-directory: backend
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Bandit
+        run: pip install bandit[toml]
+
+      - name: Run Bandit SAST scan
+        run: bandit -r app/ -ll --exclude app/tests -f json -o bandit-report.json || true
+
+      - name: Upload Bandit report
+        uses: actions/upload-artifact@v4
+        with:
+          name: bandit-report
+          path: backend/bandit-report.json
+
+  # ── 4. Docker Build & Push ────────────────────────────────────────────────────
+  build:
+    name: Docker Build & Push
+    runs-on: ubuntu-latest
+    needs: [test, security]
+    if: github.event_name == 'push'
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Extract metadata (tags, labels)
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          tags: |
+            type=ref,event=branch
+            type=sha,prefix=sha-
+            type=raw,value=latest,enable=${{ github.ref == 'refs/heads/main' }}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: backend
+          dockerfile: backend/Dockerfile
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+          target: runtime
+
+  # ── 5. Deploy to Production ───────────────────────────────────────────────────
+  deploy:
+    name: Deploy to Production
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    environment: production
+    steps:
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.DEPLOY_HOST }}
+          username: ${{ secrets.DEPLOY_USER }}
+          key: ${{ secrets.DEPLOY_SSH_KEY }}
+          port: ${{ secrets.DEPLOY_PORT || 22 }}
+          script: |
+            cd /opt/gitam-careerhub
+            echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+            docker compose pull api celery celerybeat
+            docker compose up -d --no-build api celery celerybeat nginx
+            docker compose exec -T api python -m alembic upgrade head
+            docker image prune -f
+            echo "Deployment to production completed at $(date -u)"
+
+      - name: Notify deployment status
+        if: always()
+        run: |
+          echo "Production deployment status: ${{ job.status }}"

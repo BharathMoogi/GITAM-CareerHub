@@ -1,0 +1,55 @@
+# ── Python cache & compiled files ───────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.so
+
+# ── Virtual environments ─────────────────────────────────────────────────────
+.venv/
+venv/
+env/
+ENV/
+.env.local
+.env.development
+.env.test
+
+# ── Tests & coverage ────────────────────────────────────────────────────────
+tests/
+.pytest_cache/
+.coverage
+htmlcov/
+coverage.xml
+*.cover
+bandit-report.json
+
+# ── IDE & tooling ────────────────────────────────────────────────────────────
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# ── Git ──────────────────────────────────────────────────────────────────────
+.git/
+.gitignore
+
+# ── Migrations (embedded in image — run via alembic upgrade head at deploy) ──
+# alembic/versions/    # Keep: needed for runtime migrations
+
+# ── Local development artifacts ──────────────────────────────────────────────
+*.log
+*.pid
+uploads/
+*.sqlite
+*.db
+
+# ── Documentation ────────────────────────────────────────────────────────────
+docs/
+*.md
+README*
+
+# ── CI/CD ────────────────────────────────────────────────────────────────────
+.github/
