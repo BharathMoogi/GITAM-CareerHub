@@ -14,11 +14,22 @@ document.addEventListener('DOMContentLoaded', () => {
 /* 1. Sidebar Navigation Switcher */
 function initSidebarNav() {
   const navItems = document.querySelectorAll('.nav-item');
+  const tabViews = document.querySelectorAll('.tab-view');
+
   navItems.forEach(item => {
     item.addEventListener('click', () => {
       navItems.forEach(i => i.classList.remove('active'));
       item.classList.add('active');
+
       const page = item.getAttribute('data-page');
+
+      tabViews.forEach(v => v.classList.remove('active'));
+      const targetView = document.getElementById(`view-${page}`);
+      if (targetView) {
+        targetView.classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
       fetchPageData(page);
     });
   });

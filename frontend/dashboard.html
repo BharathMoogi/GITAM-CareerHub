@@ -118,361 +118,475 @@
     <!-- ── PAGE CONTENT ──────────────────────────────────────────────── -->
     <main class="page-content" id="main-content">
 
-      <!-- Welcome Row -->
-      <div class="welcome-row">
-        <div class="welcome-left">
-          <h1 class="welcome-title">Welcome back, Bharath! 👋</h1>
-          <div class="welcome-meta">
-            <span>ECE • 3rd Year • Semester 5</span>
-            <span class="target-role-badge"><i class="fas fa-crosshairs"></i> Target Role: Embedded Engineer</span>
-          </div>
-        </div>
-        <div class="streak-card">
-          <div class="streak-icon"><i class="fas fa-trophy"></i></div>
-          <div class="streak-info">
-            <span class="streak-label">Current Streak</span>
-            <span class="streak-days">12 Days</span>
-            <span class="streak-sub">Great going! 🔥</span>
-          </div>
-        </div>
-      </div>
+      <!-- ── VIEW 1: DASHBOARD (Active Default) ─────────────────────── -->
+      <div class="tab-view active" id="view-dashboard">
 
-      <!-- ── STATS ROW ──────────────────────────────────────────────── -->
-      <div class="stats-row">
-
-        <!-- Career Readiness -->
-        <div class="stat-card readiness-card">
-          <div class="stat-header">
-            <span class="stat-label">Career Readiness</span>
-            <i class="fas fa-chart-line stat-icon"></i>
-          </div>
-          <div class="readiness-body">
-            <div class="donut-wrap">
-              <svg viewBox="0 0 80 80" class="donut-svg">
-                <circle cx="40" cy="40" r="32" fill="none" stroke="#E4F4F1" stroke-width="8"/>
-                <circle cx="40" cy="40" r="32" fill="none" stroke="#0C7A6B" stroke-width="8"
-                  stroke-dasharray="201.06" stroke-dashoffset="43.23"
-                  stroke-linecap="round" transform="rotate(-90 40 40)"/>
-              </svg>
-              <span class="donut-pct">78%</span>
+        <!-- Welcome Row -->
+        <div class="welcome-row">
+          <div class="welcome-left">
+            <h1 class="welcome-title">Welcome back, Bharath! 👋</h1>
+            <div class="welcome-meta">
+              <span>ECE • 3rd Year • Semester 5</span>
+              <span class="target-role-badge"><i class="fas fa-crosshairs"></i> Target Role: Embedded Engineer</span>
             </div>
-            <div>
-              <div class="readiness-pct">78%</div>
-              <div class="readiness-grade">Excellent</div>
+          </div>
+          <div class="streak-card">
+            <div class="streak-icon"><i class="fas fa-trophy"></i></div>
+            <div class="streak-info">
+              <span class="streak-label">Current Streak</span>
+              <span class="streak-days">12 Days</span>
+              <span class="streak-sub">Great going! 🔥</span>
             </div>
           </div>
         </div>
 
-        <!-- Roadmap Progress -->
-        <div class="stat-card">
-          <div class="stat-header">
-            <span class="stat-label">Roadmap Progress</span>
-            <i class="fas fa-check-circle stat-icon"></i>
-          </div>
-          <div class="stat-big">64%</div>
-          <div class="stat-sub">On Track</div>
-        </div>
+        <!-- ── STATS ROW ──────────────────────────────────────────────── -->
+        <div class="stats-row">
 
-        <!-- Projects -->
-        <div class="stat-card">
-          <div class="stat-header">
-            <span class="stat-label">Projects Completed</span>
-            <i class="fas fa-code stat-icon"></i>
-          </div>
-          <div class="stat-big">8 <span class="stat-of">/ 20</span></div>
-          <div class="stat-sub">Keep Building!</div>
-        </div>
-
-        <!-- Certificates -->
-        <div class="stat-card">
-          <div class="stat-header">
-            <span class="stat-label">Certificates Earned</span>
-            <i class="fas fa-award stat-icon"></i>
-          </div>
-          <div class="stat-big">3 <span class="stat-of">/ 10</span></div>
-          <div class="stat-sub">Keep Learning!</div>
-        </div>
-
-        <!-- Applications -->
-        <div class="stat-card">
-          <div class="stat-header">
-            <span class="stat-label">Applications</span>
-            <i class="fas fa-paper-plane stat-icon"></i>
-          </div>
-          <div class="stat-big">12</div>
-          <div class="stat-sub">Total Applied</div>
-        </div>
-
-        <!-- Offers -->
-        <div class="stat-card offer-card">
-          <div class="stat-header">
-            <span class="stat-label">Offers Received</span>
-            <i class="fas fa-gift stat-icon offer-icon"></i>
-          </div>
-          <div class="stat-big offer-num">1</div>
-          <div class="stat-sub offer-sub">Congratulations! 🎉</div>
-        </div>
-
-      </div>
-
-      <!-- ── MIDDLE ROW ─────────────────────────────────────────────── -->
-      <div class="mid-row">
-
-        <!-- Today's Tasks -->
-        <div class="card tasks-card">
-          <div class="card-header">
-            <h3 class="card-title">Today's Tasks</h3>
-          </div>
-          <ul class="task-list" id="task-list">
-            <li class="task-item">
-              <input type="checkbox" class="task-check" id="t1">
-              <label for="t1" class="task-label">Complete RTOS Course</label>
-              <span class="task-tag course">Course</span>
-              <span class="task-due due-today">Due Today</span>
-            </li>
-            <li class="task-item">
-              <input type="checkbox" class="task-check" id="t2">
-              <label for="t2" class="task-label">Submit CAN Communication Project</label>
-              <span class="task-tag project">Project</span>
-              <span class="task-due">Due Tomorrow</span>
-            </li>
-            <li class="task-item">
-              <input type="checkbox" class="task-check" id="t3">
-              <label for="t3" class="task-label">Apply for Bosch Internship</label>
-              <span class="task-tag internship">Internship</span>
-              <span class="task-due">Due in 2 Days</span>
-            </li>
-            <li class="task-item">
-              <input type="checkbox" class="task-check" id="t4">
-              <label for="t4" class="task-label">Practice OS Interview Questions</label>
-              <span class="task-tag interview">Interview</span>
-              <span class="task-due">Due in 3 Days</span>
-            </li>
-          </ul>
-          <a href="#" class="card-footer-link">View All Tasks <i class="fas fa-arrow-right"></i></a>
-        </div>
-
-        <!-- AI Recommendation -->
-        <div class="card ai-card">
-          <div class="card-header ai-header">
-            <div class="ai-icon-wrap"><i class="fas fa-robot"></i></div>
-            <h3 class="card-title">AI Recommendation</h3>
-            <i class="fas fa-comment-dots ai-chat-icon"></i>
-          </div>
-          <p class="ai-desc">Based on your progress, we recommend:</p>
-          <div class="ai-highlight">
-            Complete the RTOS course to improve your Embedded Systems readiness.
-          </div>
-          <button class="btn-ai-start" id="ai-start-btn">
-            <i class="fas fa-play"></i> Start Now
-          </button>
-        </div>
-
-        <!-- Upcoming Deadlines -->
-        <div class="card deadlines-card">
-          <div class="card-header">
-            <div class="deadline-hd-icon"><i class="fas fa-calendar-alt"></i></div>
-            <h3 class="card-title">Upcoming Deadlines</h3>
-          </div>
-          <ul class="deadline-list">
-            <li class="deadline-item">
-              <i class="fas fa-calendar deadline-item-icon"></i>
-              <span class="deadline-name">Bosch Internship Application</span>
-              <span class="deadline-date urgent">20 May 2025</span>
-            </li>
-            <li class="deadline-item">
-              <i class="fas fa-file-alt deadline-item-icon"></i>
-              <span class="deadline-name">NPTEL Embedded Systems Exam</span>
-              <span class="deadline-date warning">25 May 2025</span>
-            </li>
-            <li class="deadline-item">
-              <i class="fas fa-building deadline-item-icon"></i>
-              <span class="deadline-name">Texas Instruments Internship</span>
-              <span class="deadline-date warning">28 May 2025</span>
-            </li>
-          </ul>
-          <a href="#" class="card-footer-link">View All Deadlines <i class="fas fa-arrow-right"></i></a>
-        </div>
-
-      </div>
-
-      <!-- ── BOTTOM ROW ─────────────────────────────────────────────── -->
-      <div class="bottom-row">
-
-        <!-- Top Companies -->
-        <div class="card companies-card">
-          <div class="card-header">
-            <h3 class="card-title">Top Companies for You</h3>
-            <a href="#" class="view-all-link">View All</a>
-          </div>
-          <ul class="company-list">
-            <li class="company-item">
-              <div class="company-logo bosch-logo">B</div>
-              <div class="company-info">
-                <span class="company-name">Bosch</span>
-                <div class="company-bar-wrap">
-                  <div class="company-bar" style="width: 82%;"></div>
-                </div>
-              </div>
-              <span class="company-pct">82%</span>
-              <button class="btn-company-view">View</button>
-            </li>
-            <li class="company-item">
-              <div class="company-logo ti-logo">TI</div>
-              <div class="company-info">
-                <span class="company-name">Texas Instruments</span>
-                <div class="company-bar-wrap">
-                  <div class="company-bar" style="width: 76%;"></div>
-                </div>
-              </div>
-              <span class="company-pct">76%</span>
-              <button class="btn-company-view">View</button>
-            </li>
-            <li class="company-item">
-              <div class="company-logo nxp-logo">NXP</div>
-              <div class="company-info">
-                <span class="company-name">NXP Semiconductors</span>
-                <div class="company-bar-wrap">
-                  <div class="company-bar" style="width: 72%;"></div>
-                </div>
-              </div>
-              <span class="company-pct">72%</span>
-              <button class="btn-company-view">View</button>
-            </li>
-            <li class="company-item">
-              <div class="company-logo siemens-logo">S</div>
-              <div class="company-info">
-                <span class="company-name">Siemens</span>
-                <div class="company-bar-wrap">
-                  <div class="company-bar" style="width: 65%;"></div>
-                </div>
-              </div>
-              <span class="company-pct">65%</span>
-              <button class="btn-company-view">View</button>
-            </li>
-          </ul>
-        </div>
-
-        <!-- Skill Distribution -->
-        <div class="card skill-card">
-          <div class="card-header">
-            <h3 class="card-title">Skill Distribution</h3>
-          </div>
-          <div class="skill-body">
-            <div class="skill-donut-wrap">
-              <svg viewBox="0 0 120 120" class="skill-donut">
-                <!-- Embedded Systems 40% -->
-                <circle cx="60" cy="60" r="48" fill="none" stroke="#0C7A6B" stroke-width="18"
-                  stroke-dasharray="120.63 180.96" stroke-dashoffset="0"
-                  transform="rotate(-90 60 60)"/>
-                <!-- C Programming 25% -->
-                <circle cx="60" cy="60" r="48" fill="none" stroke="#0E9B87" stroke-width="18"
-                  stroke-dasharray="75.40 226.19" stroke-dashoffset="-120.63"
-                  transform="rotate(-90 60 60)"/>
-                <!-- RTOS 15% -->
-                <circle cx="60" cy="60" r="48" fill="none" stroke="#5BC8B8" stroke-width="18"
-                  stroke-dasharray="45.24 256.35" stroke-dashoffset="-196.03"
-                  transform="rotate(-90 60 60)"/>
-                <!-- Communication 10% -->
-                <circle cx="60" cy="60" r="48" fill="none" stroke="#A8DDD6" stroke-width="18"
-                  stroke-dasharray="30.16 271.43" stroke-dashoffset="-241.27"
-                  transform="rotate(-90 60 60)"/>
-                <!-- Others 10% -->
-                <circle cx="60" cy="60" r="48" fill="none" stroke="#D4EEEB" stroke-width="18"
-                  stroke-dasharray="30.16 271.43" stroke-dashoffset="-271.43"
-                  transform="rotate(-90 60 60)"/>
-                <text x="60" y="55" text-anchor="middle" font-size="14" font-weight="800" fill="#0C7A6B">64%</text>
-                <text x="60" y="70" text-anchor="middle" font-size="8" fill="#5A8C85">Overall</text>
-              </svg>
+          <!-- Career Readiness -->
+          <div class="stat-card readiness-card">
+            <div class="stat-header">
+              <span class="stat-label">Career Readiness</span>
+              <i class="fas fa-chart-line stat-icon"></i>
             </div>
-            <ul class="skill-legend">
-              <li><span class="legend-dot" style="background:#0C7A6B"></span>Embedded Systems<span class="legend-pct">40%</span></li>
-              <li><span class="legend-dot" style="background:#0E9B87"></span>C Programming<span class="legend-pct">25%</span></li>
-              <li><span class="legend-dot" style="background:#5BC8B8"></span>RTOS<span class="legend-pct">15%</span></li>
-              <li><span class="legend-dot" style="background:#A8DDD6"></span>Communication<span class="legend-pct">10%</span></li>
-              <li><span class="legend-dot" style="background:#D4EEEB"></span>Others<span class="legend-pct">10%</span></li>
+            <div class="readiness-body">
+              <div class="donut-wrap">
+                <svg viewBox="0 0 80 80" class="donut-svg">
+                  <circle cx="40" cy="40" r="32" fill="none" stroke="#E4F4F1" stroke-width="8"/>
+                  <circle cx="40" cy="40" r="32" fill="none" stroke="#0C7A6B" stroke-width="8"
+                    stroke-dasharray="201.06" stroke-dashoffset="43.23"
+                    stroke-linecap="round" transform="rotate(-90 40 40)"/>
+                </svg>
+                <span class="donut-pct">78%</span>
+              </div>
+              <div>
+                <div class="readiness-pct">78%</div>
+                <div class="readiness-grade">Excellent</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Roadmap Progress -->
+          <div class="stat-card">
+            <div class="stat-header">
+              <span class="stat-label">Roadmap Progress</span>
+              <i class="fas fa-check-circle stat-icon"></i>
+            </div>
+            <div class="stat-big">64%</div>
+            <div class="stat-sub">On Track</div>
+          </div>
+
+          <!-- Projects -->
+          <div class="stat-card">
+            <div class="stat-header">
+              <span class="stat-label">Projects Completed</span>
+              <i class="fas fa-code stat-icon"></i>
+            </div>
+            <div class="stat-big">8 <span class="stat-of">/ 20</span></div>
+            <div class="stat-sub">Keep Building!</div>
+          </div>
+
+          <!-- Certificates -->
+          <div class="stat-card">
+            <div class="stat-header">
+              <span class="stat-label">Certificates Earned</span>
+              <i class="fas fa-award stat-icon"></i>
+            </div>
+            <div class="stat-big">3 <span class="stat-of">/ 10</span></div>
+            <div class="stat-sub">Keep Learning!</div>
+          </div>
+
+          <!-- Applications -->
+          <div class="stat-card">
+            <div class="stat-header">
+              <span class="stat-label">Applications</span>
+              <i class="fas fa-paper-plane stat-icon"></i>
+            </div>
+            <div class="stat-big">12</div>
+            <div class="stat-sub">Total Applied</div>
+          </div>
+
+          <!-- Offers -->
+          <div class="stat-card offer-card">
+            <div class="stat-header">
+              <span class="stat-label">Offers Received</span>
+              <i class="fas fa-gift stat-icon offer-icon"></i>
+            </div>
+            <div class="stat-big offer-num">1</div>
+            <div class="stat-sub offer-sub">Congratulations! 🎉</div>
+          </div>
+
+        </div>
+
+        <!-- ── MIDDLE ROW ─────────────────────────────────────────────── -->
+        <div class="mid-row">
+
+          <!-- Today's Tasks -->
+          <div class="card tasks-card">
+            <div class="card-header">
+              <h3 class="card-title">Today's Tasks</h3>
+            </div>
+            <ul class="task-list" id="task-list">
+              <li class="task-item">
+                <input type="checkbox" class="task-check" id="t1">
+                <label for="t1" class="task-label">Complete RTOS Course</label>
+                <span class="task-tag course">Course</span>
+                <span class="task-due due-today">Due Today</span>
+              </li>
+              <li class="task-item">
+                <input type="checkbox" class="task-check" id="t2">
+                <label for="t2" class="task-label">Submit CAN Communication Project</label>
+                <span class="task-tag project">Project</span>
+                <span class="task-due">Due Tomorrow</span>
+              </li>
+              <li class="task-item">
+                <input type="checkbox" class="task-check" id="t3">
+                <label for="t3" class="task-label">Apply for Bosch Internship</label>
+                <span class="task-tag internship">Internship</span>
+                <span class="task-due">Due in 2 Days</span>
+              </li>
+              <li class="task-item">
+                <input type="checkbox" class="task-check" id="t4">
+                <label for="t4" class="task-label">Practice OS Interview Questions</label>
+                <span class="task-tag interview">Interview</span>
+                <span class="task-due">Due in 3 Days</span>
+              </li>
+            </ul>
+            <a href="#" class="card-footer-link">View All Tasks <i class="fas fa-arrow-right"></i></a>
+          </div>
+
+          <!-- AI Recommendation -->
+          <div class="card ai-card">
+            <div class="card-header ai-header">
+              <div class="ai-icon-wrap"><i class="fas fa-robot"></i></div>
+              <h3 class="card-title">AI Recommendation</h3>
+              <i class="fas fa-comment-dots ai-chat-icon"></i>
+            </div>
+            <p class="ai-desc">Based on your progress, we recommend:</p>
+            <div class="ai-highlight">
+              Complete the RTOS course to improve your Embedded Systems readiness.
+            </div>
+            <button class="btn-ai-start" id="ai-start-btn">
+              <i class="fas fa-play"></i> Start Now
+            </button>
+          </div>
+
+          <!-- Upcoming Deadlines -->
+          <div class="card deadlines-card">
+            <div class="card-header">
+              <div class="deadline-hd-icon"><i class="fas fa-calendar-alt"></i></div>
+              <h3 class="card-title">Upcoming Deadlines</h3>
+            </div>
+            <ul class="deadline-list">
+              <li class="deadline-item">
+                <i class="fas fa-calendar deadline-item-icon"></i>
+                <span class="deadline-name">Bosch Internship Application</span>
+                <span class="deadline-date urgent">20 May 2025</span>
+              </li>
+              <li class="deadline-item">
+                <i class="fas fa-file-alt deadline-item-icon"></i>
+                <span class="deadline-name">NPTEL Embedded Systems Exam</span>
+                <span class="deadline-date warning">25 May 2025</span>
+              </li>
+              <li class="deadline-item">
+                <i class="fas fa-building deadline-item-icon"></i>
+                <span class="deadline-name">Texas Instruments Internship</span>
+                <span class="deadline-date warning">28 May 2025</span>
+              </li>
+            </ul>
+            <a href="#" class="card-footer-link">View All Deadlines <i class="fas fa-arrow-right"></i></a>
+          </div>
+
+        </div>
+
+        <!-- ── BOTTOM ROW ─────────────────────────────────────────────── -->
+        <div class="bottom-row">
+
+          <!-- Top Companies -->
+          <div class="card companies-card">
+            <div class="card-header">
+              <h3 class="card-title">Top Companies for You</h3>
+              <a href="#" class="view-all-link">View All</a>
+            </div>
+            <ul class="company-list">
+              <li class="company-item">
+                <div class="company-logo bosch-logo">B</div>
+                <div class="company-info">
+                  <span class="company-name">Bosch</span>
+                  <div class="company-bar-wrap">
+                    <div class="company-bar" style="width: 82%;"></div>
+                  </div>
+                </div>
+                <span class="company-pct">82%</span>
+                <button class="btn-company-view">View</button>
+              </li>
+              <li class="company-item">
+                <div class="company-logo ti-logo">TI</div>
+                <div class="company-info">
+                  <span class="company-name">Texas Instruments</span>
+                  <div class="company-bar-wrap">
+                    <div class="company-bar" style="width: 76%;"></div>
+                  </div>
+                </div>
+                <span class="company-pct">76%</span>
+                <button class="btn-company-view">View</button>
+              </li>
+              <li class="company-item">
+                <div class="company-logo nxp-logo">NXP</div>
+                <div class="company-info">
+                  <span class="company-name">NXP Semiconductors</span>
+                  <div class="company-bar-wrap">
+                    <div class="company-bar" style="width: 72%;"></div>
+                  </div>
+                </div>
+                <span class="company-pct">72%</span>
+                <button class="btn-company-view">View</button>
+              </li>
+              <li class="company-item">
+                <div class="company-logo siemens-logo">S</div>
+                <div class="company-info">
+                  <span class="company-name">Siemens</span>
+                  <div class="company-bar-wrap">
+                    <div class="company-bar" style="width: 65%;"></div>
+                  </div>
+                </div>
+                <span class="company-pct">65%</span>
+                <button class="btn-company-view">View</button>
+              </li>
             </ul>
           </div>
-          <a href="#" class="card-footer-link">View Full Report <i class="fas fa-arrow-right"></i></a>
+
+          <!-- Skill Distribution -->
+          <div class="card skill-card">
+            <div class="card-header">
+              <h3 class="card-title">Skill Distribution</h3>
+            </div>
+            <div class="skill-body">
+              <div class="skill-donut-wrap">
+                <svg viewBox="0 0 120 120" class="skill-donut">
+                  <circle cx="60" cy="60" r="48" fill="none" stroke="#0C7A6B" stroke-width="18"
+                    stroke-dasharray="120.63 180.96" stroke-dashoffset="0"
+                    transform="rotate(-90 60 60)"/>
+                  <circle cx="60" cy="60" r="48" fill="none" stroke="#0E9B87" stroke-width="18"
+                    stroke-dasharray="75.40 226.19" stroke-dashoffset="-120.63"
+                    transform="rotate(-90 60 60)"/>
+                  <circle cx="60" cy="60" r="48" fill="none" stroke="#5BC8B8" stroke-width="18"
+                    stroke-dasharray="45.24 256.35" stroke-dashoffset="-196.03"
+                    transform="rotate(-90 60 60)"/>
+                  <circle cx="60" cy="60" r="48" fill="none" stroke="#A8DDD6" stroke-width="18"
+                    stroke-dasharray="30.16 271.43" stroke-dashoffset="-241.27"
+                    transform="rotate(-90 60 60)"/>
+                  <circle cx="60" cy="60" r="48" fill="none" stroke="#D4EEEB" stroke-width="18"
+                    stroke-dasharray="30.16 271.43" stroke-dashoffset="-271.43"
+                    transform="rotate(-90 60 60)"/>
+                  <text x="60" y="55" text-anchor="middle" font-size="14" font-weight="800" fill="#0C7A6B">64%</text>
+                  <text x="60" y="70" text-anchor="middle" font-size="8" fill="#5A8C85">Overall</text>
+                </svg>
+              </div>
+              <ul class="skill-legend">
+                <li><span class="legend-dot" style="background:#0C7A6B"></span>Embedded Systems<span class="legend-pct">40%</span></li>
+                <li><span class="legend-dot" style="background:#0E9B87"></span>C Programming<span class="legend-pct">25%</span></li>
+                <li><span class="legend-dot" style="background:#5BC8B8"></span>RTOS<span class="legend-pct">15%</span></li>
+                <li><span class="legend-dot" style="background:#A8DDD6"></span>Communication<span class="legend-pct">10%</span></li>
+                <li><span class="legend-dot" style="background:#D4EEEB"></span>Others<span class="legend-pct">10%</span></li>
+              </ul>
+            </div>
+            <a href="#" class="card-footer-link">View Full Report <i class="fas fa-arrow-right"></i></a>
+          </div>
+
+          <!-- Weekly Progress Chart -->
+          <div class="card progress-card">
+            <div class="card-header">
+              <h3 class="card-title">Weekly Progress</h3>
+              <select class="week-select" id="week-select">
+                <option>This Week</option>
+                <option>Last Week</option>
+              </select>
+            </div>
+            <div class="chart-wrap">
+              <div class="chart-y-labels">
+                <span>100%</span><span>75%</span><span>50%</span><span>25%</span><span>0%</span>
+              </div>
+              <div class="chart-area">
+                <svg viewBox="0 0 280 120" class="line-chart" preserveAspectRatio="none">
+                  <defs>
+                    <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#0C7A6B" stop-opacity="0.25"/>
+                      <stop offset="100%" stop-color="#0C7A6B" stop-opacity="0"/>
+                    </linearGradient>
+                  </defs>
+                  <line x1="0" y1="0" x2="280" y2="0" stroke="#E4F4F1" stroke-width="1"/>
+                  <line x1="0" y1="30" x2="280" y2="30" stroke="#E4F4F1" stroke-width="1"/>
+                  <line x1="0" y1="60" x2="280" y2="60" stroke="#E4F4F1" stroke-width="1"/>
+                  <line x1="0" y1="90" x2="280" y2="90" stroke="#E4F4F1" stroke-width="1"/>
+                  <line x1="0" y1="120" x2="280" y2="120" stroke="#E4F4F1" stroke-width="1"/>
+                  <path d="M0,90 L40,80 L80,65 L120,55 L160,40 L200,30 L240,15 L280,10 L280,120 L0,120 Z" fill="url(#chartGrad)"/>
+                  <path d="M0,90 L40,80 L80,65 L120,55 L160,40 L200,30 L240,15 L280,10" fill="none" stroke="#0C7A6B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <circle cx="0" cy="90" r="4" fill="#0C7A6B"/>
+                  <circle cx="40" cy="80" r="4" fill="#0C7A6B"/>
+                  <circle cx="80" cy="65" r="4" fill="#0C7A6B"/>
+                  <circle cx="120" cy="55" r="4" fill="#0C7A6B"/>
+                  <circle cx="160" cy="40" r="4" fill="#0C7A6B"/>
+                  <circle cx="200" cy="30" r="4" fill="#0C7A6B"/>
+                  <circle cx="240" cy="15" r="4" fill="#0C7A6B"/>
+                  <circle cx="280" cy="10" r="5" fill="#0C7A6B" stroke="white" stroke-width="2"/>
+                </svg>
+                <div class="chart-x-labels">
+                  <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+                </div>
+              </div>
+            </div>
+            <a href="#" class="card-footer-link">View Analytics <i class="fas fa-arrow-right"></i></a>
+          </div>
+
         </div>
 
-        <!-- Weekly Progress Chart -->
-        <div class="card progress-card">
+        <!-- ── RECENT ACTIVITY ─────────────────────────────────────────── -->
+        <div class="card activity-card">
           <div class="card-header">
-            <h3 class="card-title">Weekly Progress</h3>
-            <select class="week-select" id="week-select">
-              <option>This Week</option>
-              <option>Last Week</option>
-            </select>
+            <h3 class="card-title">Recent Activity</h3>
+            <a href="#" class="view-all-link">View All Activity <i class="fas fa-arrow-right"></i></a>
           </div>
-          <div class="chart-wrap">
-            <div class="chart-y-labels">
-              <span>100%</span><span>75%</span><span>50%</span><span>25%</span><span>0%</span>
+          <div class="activity-grid">
+            <div class="activity-item">
+              <div class="activity-icon course-icon"><i class="fas fa-book-open"></i></div>
+              <div class="activity-info">
+                <p class="activity-text">Completed "Introduction to Embedded Systems"</p>
+                <span class="activity-time">2 hours ago</span>
+              </div>
             </div>
-            <div class="chart-area">
-              <svg viewBox="0 0 280 120" class="line-chart" preserveAspectRatio="none">
-                <defs>
-                  <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stop-color="#0C7A6B" stop-opacity="0.25"/>
-                    <stop offset="100%" stop-color="#0C7A6B" stop-opacity="0"/>
-                  </linearGradient>
-                </defs>
-                <!-- Grid lines -->
-                <line x1="0" y1="0" x2="280" y2="0" stroke="#E4F4F1" stroke-width="1"/>
-                <line x1="0" y1="30" x2="280" y2="30" stroke="#E4F4F1" stroke-width="1"/>
-                <line x1="0" y1="60" x2="280" y2="60" stroke="#E4F4F1" stroke-width="1"/>
-                <line x1="0" y1="90" x2="280" y2="90" stroke="#E4F4F1" stroke-width="1"/>
-                <line x1="0" y1="120" x2="280" y2="120" stroke="#E4F4F1" stroke-width="1"/>
-                <!-- Area fill -->
-                <path d="M0,90 L40,80 L80,65 L120,55 L160,40 L200,30 L240,15 L280,10 L280,120 L0,120 Z"
-                      fill="url(#chartGrad)"/>
-                <!-- Line -->
-                <path d="M0,90 L40,80 L80,65 L120,55 L160,40 L200,30 L240,15 L280,10"
-                      fill="none" stroke="#0C7A6B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <!-- Dots -->
-                <circle cx="0" cy="90" r="4" fill="#0C7A6B"/>
-                <circle cx="40" cy="80" r="4" fill="#0C7A6B"/>
-                <circle cx="80" cy="65" r="4" fill="#0C7A6B"/>
-                <circle cx="120" cy="55" r="4" fill="#0C7A6B"/>
-                <circle cx="160" cy="40" r="4" fill="#0C7A6B"/>
-                <circle cx="200" cy="30" r="4" fill="#0C7A6B"/>
-                <circle cx="240" cy="15" r="4" fill="#0C7A6B"/>
-                <circle cx="280" cy="10" r="5" fill="#0C7A6B" stroke="white" stroke-width="2"/>
-              </svg>
-              <div class="chart-x-labels">
-                <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+            <div class="activity-item">
+              <div class="activity-icon project-icon"><i class="fas fa-code"></i></div>
+              <div class="activity-info">
+                <p class="activity-text">Submitted CAN Communication Project</p>
+                <span class="activity-time">1 day ago</span>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-icon cert-icon"><i class="fas fa-award"></i></div>
+              <div class="activity-info">
+                <p class="activity-text">Earned certificate in C Programming</p>
+                <span class="activity-time">3 days ago</span>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-icon apply-icon"><i class="fas fa-briefcase"></i></div>
+              <div class="activity-info">
+                <p class="activity-text">Applied for Bosch Internship</p>
+                <span class="activity-time">4 days ago</span>
               </div>
             </div>
           </div>
-          <a href="#" class="card-footer-link">View Analytics <i class="fas fa-arrow-right"></i></a>
         </div>
 
       </div>
 
-      <!-- ── RECENT ACTIVITY ─────────────────────────────────────────── -->
-      <div class="card activity-card">
-        <div class="card-header">
-          <h3 class="card-title">Recent Activity</h3>
-          <a href="#" class="view-all-link">View All Activity <i class="fas fa-arrow-right"></i></a>
+      <!-- ── VIEW 2: ROADMAP ─────────────────────────────────────────── -->
+      <div class="tab-view" id="view-roadmap">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title"><i class="fa-solid fa-diagram-project" style="color:var(--accent-light); margin-right:8px;"></i> Academic Roadmap & Milestone Engine</h3>
+            <span class="target-role-badge">Branch: ECE</span>
+          </div>
+          <p style="color:var(--text-muted); font-size:0.95rem; margin-bottom:16px;">Semester-by-semester milestone tracker powered by live backend API `/api/v1/roadmaps/`.</p>
+          <div class="activity-grid">
+            <div class="activity-item"><div class="activity-icon course-icon">S1</div><div><strong>Sem 1-2</strong><p class="activity-time">C Programming & Circuit Theory (Completed)</p></div></div>
+            <div class="activity-item"><div class="activity-icon project-icon">S3</div><div><strong>Sem 3-4</strong><p class="activity-time">Microcontrollers & Signals (Completed)</p></div></div>
+            <div class="activity-item"><div class="activity-icon cert-icon">S5</div><div><strong>Sem 5-6 (Current)</strong><p class="activity-time">RTOS, CAN Protocol & VLSI Design</p></div></div>
+            <div class="activity-item"><div class="activity-icon apply-icon">S7</div><div><strong>Sem 7-8</strong><p class="activity-time">Capstone Project & Campus Drives</p></div></div>
+          </div>
         </div>
-        <div class="activity-grid">
-          <div class="activity-item">
-            <div class="activity-icon course-icon"><i class="fas fa-book-open"></i></div>
-            <div class="activity-info">
-              <p class="activity-text">Completed "Introduction to Embedded Systems"</p>
-              <span class="activity-time">2 hours ago</span>
-            </div>
+      </div>
+
+      <!-- ── VIEW 3: COURSES ─────────────────────────────────────────── -->
+      <div class="tab-view" id="view-courses">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title"><i class="fa-solid fa-book-open" style="color:var(--accent-light); margin-right:8px;"></i> Courses & Skill Tracks</h3>
           </div>
-          <div class="activity-item">
-            <div class="activity-icon project-icon"><i class="fas fa-code"></i></div>
-            <div class="activity-info">
-              <p class="activity-text">Submitted CAN Communication Project</p>
-              <span class="activity-time">1 day ago</span>
-            </div>
+          <div class="activity-grid">
+            <div class="activity-item"><div class="activity-icon course-icon">1</div><div><strong>Real-Time Operating Systems (RTOS)</strong><p class="activity-time">Progress: 85% • Enrolled</p></div></div>
+            <div class="activity-item"><div class="activity-icon course-icon">2</div><div><strong>Embedded C & ARM Cortex-M</strong><p class="activity-time">Progress: 100% • Certificate Earned</p></div></div>
+            <div class="activity-item"><div class="activity-icon course-icon">3</div><div><strong>CAN & Automotive Protocols</strong><p class="activity-time">Progress: 40% • In Progress</p></div></div>
+            <div class="activity-item"><div class="activity-icon course-icon">4</div><div><strong>Verilog & VLSI Design Basics</strong><p class="activity-time">Recommended for ECE Sem 6</p></div></div>
           </div>
-          <div class="activity-item">
-            <div class="activity-icon cert-icon"><i class="fas fa-award"></i></div>
-            <div class="activity-info">
+        </div>
+      </div>
+
+      <!-- ── VIEW 4: PROJECTS ────────────────────────────────────────── -->
+      <div class="tab-view" id="view-projects">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title"><i class="fa-solid fa-laptop-code" style="color:var(--accent-light); margin-right:8px;"></i> Industry Projects & Submissions</h3>
+          </div>
+          <div class="activity-grid">
+            <div class="activity-item"><div class="activity-icon project-icon">P1</div><div><strong>CAN Bus Vehicle Telemetry System</strong><p class="activity-time">Submitted • Reviewed by AI</p></div></div>
+            <div class="activity-item"><div class="activity-icon project-icon">P2</div><div><strong>STM32 FreeRTOS Task Scheduler</strong><p class="activity-time">Completed • Score: 95/100</p></div></div>
+            <div class="activity-item"><div class="activity-icon project-icon">P3</div><div><strong>Autonomous Rover with ROS2</strong><p class="activity-time">In Progress • Target: 15 June</p></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── VIEW 5: CERTIFICATIONS ─────────────────────────────────── -->
+      <div class="tab-view" id="view-certifications">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title"><i class="fa-solid fa-award" style="color:var(--accent-light); margin-right:8px;"></i> Certifications Vault</h3>
+          </div>
+          <div class="activity-grid">
+            <div class="activity-item"><div class="activity-icon cert-icon">C1</div><div><strong>NPTEL Embedded Systems Design</strong><p class="activity-time">Verified • Gold Medal</p></div></div>
+            <div class="activity-item"><div class="activity-icon cert-icon">C2</div><div><strong>Bosch Automotive Systems Certified</strong><p class="activity-time">Verified</p></div></div>
+            <div class="activity-item"><div class="activity-icon cert-icon">C3</div><div><strong>Arm Education Microcontroller Certificate</strong><p class="activity-time">Verified</p></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── VIEW 6: COMPANIES ───────────────────────────────────────── -->
+      <div class="tab-view" id="view-companies">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title"><i class="fa-solid fa-building" style="color:var(--accent-light); margin-right:8px;"></i> Recruiter & Company Readiness</h3>
+          </div>
+          <div class="activity-grid">
+            <div class="activity-item"><div class="company-logo bosch-logo">B</div><div><strong>Bosch Automotive</strong><p class="activity-time">Match: 82% • Hiring status: Open</p></div></div>
+            <div class="activity-item"><div class="company-logo ti-logo">TI</div><div><strong>Texas Instruments</strong><p class="activity-time">Match: 76% • Hiring status: Open</p></div></div>
+            <div class="activity-item"><div class="company-logo nxp-logo">NXP</div><div><strong>NXP Semiconductors</strong><p class="activity-time">Match: 72% • Hiring status: Upcoming</p></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── VIEW 7: INTERNSHIPS ─────────────────────────────────────── -->
+      <div class="tab-view" id="view-internships">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title"><i class="fa-solid fa-briefcase" style="color:var(--accent-light); margin-right:8px;"></i> Internship Portal</h3>
+          </div>
+          <div class="activity-grid">
+            <div class="activity-item"><div class="activity-icon apply-icon">I1</div><div><strong>Bosch Embedded Intern</strong><p class="activity-time">Applied • Status: Shortlisted</p></div></div>
+            <div class="activity-item"><div class="activity-icon apply-icon">I2</div><div><strong>TI Firmware Engineering Intern</strong><p class="activity-time">Applied • Status: Under Review</p></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── VIEW 8: PLACEMENTS ──────────────────────────────────────── -->
+      <div class="tab-view" id="view-placements">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title"><i class="fa-solid fa-user-graduate" style="color:var(--accent-light); margin-right:8px;"></i> Placement Drives & Offers</h3>
+          </div>
+          <div class="activity-grid">
+            <div class="activity-item"><div class="activity-icon cert-icon">O1</div><div><strong>Bosch India Offer</strong><p class="activity-time">Package: 14.5 LPA • Role: Embedded Engineer</p></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── VIEW 9: AI MENTOR ───────────────────────────────────────── -->
+      <div class="tab-view" id="view-ai-mentor">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title"><i class="fa-solid fa-brain" style="color:var(--accent-light); margin-right:8px;"></i> AI Career Mentor Console</h3>
+          </div>
+          <div class="ai-highlight">
               <p class="activity-text">Earned certificate in C Programming</p>
               <span class="activity-time">3 days ago</span>
             </div>
