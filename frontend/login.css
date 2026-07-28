@@ -6,16 +6,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
 :root {
-  --mygitam-green: #005C45;
-  --mygitam-green-dark: #004634;
-  --mygitam-green-light: #007558;
-  --mygitam-cream: #F5ECE0;
-  --mygitam-cream-border: #EADBCC;
+  --mygitam-green: #C8A878;
+  --mygitam-green-dark: #A88A5A;
+  --mygitam-green-light: #D4BC96;
+  --mygitam-cream: #FDF6EC;
+  --mygitam-cream-border: #EFE0C8;
   --mygitam-cream-active: #FFF9F2;
-  --mygitam-input-bg: #EBF2FA;
-  --mygitam-text-green: #005C45;
+  --mygitam-input-bg: #FAF5EE;
+  --mygitam-text-green: #8A6A40;
   --mygitam-gray: #666666;
-  --mygitam-border-gray: #B8D5CB;
+  --mygitam-border-gray: #D4BC96;
 }
 
 *, *::before, *::after {
@@ -40,10 +40,10 @@ html, body {
   width: 100vw;
 }
 
-/* ── LEFT PANEL: Deep GITAM Green (#005C45) ────────────────────────── */
+/* ── LEFT PANEL: Warm Beige/Champagne ─────────────────────────────── */
 .mygitam-left {
   flex: 1.35;
-  background-color: var(--mygitam-green);
+  background: linear-gradient(160deg, #C8A878 0%, #A88A5A 100%);
   position: relative;
   display: flex;
   flex-direction: column;
@@ -54,13 +54,14 @@ html, body {
 }
 
 .mygitam-title {
-  color: var(--mygitam-cream);
+  color: #FFFFFF;
   font-size: 3.25rem;
   font-weight: 700;
   letter-spacing: -0.02em;
   margin-top: 20px;
   margin-bottom: 60px;
   text-align: center;
+  text-shadow: 0 2px 8px rgba(120, 80, 20, 0.25);
 }
 
 /* Role Selector Cards Container */
@@ -74,7 +75,7 @@ html, body {
 
 .role-card {
   flex: 1;
-  background-color: var(--mygitam-cream);
+  background-color: rgba(255, 248, 235, 0.92);
   border-radius: 20px;
   padding: 32px 24px;
   display: flex;
@@ -85,23 +86,23 @@ html, body {
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   border: 3px solid transparent;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 10px 25px rgba(120, 80, 20, 0.2);
 }
 
 .role-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
-  background-color: var(--mygitam-cream-active);
+  box-shadow: 0 15px 35px rgba(120, 80, 20, 0.3);
+  background-color: #FFFFFF;
 }
 
 .role-card.active {
   border-color: #FFFFFF;
-  box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
   background-color: #FFFFFF;
 }
 
 .role-card-title {
-  color: var(--mygitam-text-green);
+  color: #8A6A40;
   font-size: 1.45rem;
   font-weight: 600;
   margin-bottom: 20px;
@@ -137,11 +138,11 @@ html, body {
 .login-border-box {
   width: 100%;
   max-width: 420px;
-  border: 1.5px solid var(--mygitam-border-gray);
+  border: 1.5px solid #D4BC96;
   border-radius: 8px;
   padding: 48px 40px 36px 40px;
   background-color: #FFFFFF;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 4px 20px rgba(168, 138, 90, 0.08);
 }
 
 /* Official GITAM Logo Header */
@@ -201,8 +202,8 @@ html, body {
 }
 
 .mygitam-input:focus {
-  background-color: #E2ECF8;
-  box-shadow: 0 0 0 2px rgba(0, 92, 69, 0.2);
+  background-color: #F5EDD8;
+  box-shadow: 0 0 0 2px rgba(200, 168, 120, 0.4);
 }
 
 .mygitam-input::placeholder {
@@ -237,7 +238,7 @@ html, body {
   border-radius: 2px;
   background-color: #FFFFFF;
   cursor: pointer;
-  accent-color: var(--mygitam-green);
+  accent-color: #C8A878;
 }
 
 .recaptcha-label-text {
@@ -268,7 +269,7 @@ html, body {
   min-width: 100px;
   margin: 12px auto 0 auto;
   padding: 10px 28px;
-  background-color: var(--mygitam-green);
+  background-color: #C8A878;
   color: #FFFFFF;
   border: none;
   border-radius: 6px;
@@ -277,12 +278,14 @@ html, body {
   font-size: 0.9rem;
   letter-spacing: 0.05em;
   cursor: pointer;
-  transition: background-color 0.2s ease, transform 0.1s ease;
+  transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 8px rgba(168, 138, 90, 0.4);
 }
 
 .btn-mygitam-submit:hover {
-  background-color: var(--mygitam-green-dark);
+  background-color: #A88A5A;
   transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(168, 138, 90, 0.5);
 }
 
 /* Footer Links */
@@ -295,7 +298,7 @@ html, body {
 }
 
 .mygitam-bottom-links a {
-  color: var(--mygitam-text-green);
+  color: #C8A878;
   text-decoration: none;
   font-weight: 600;
   transition: opacity 0.2s ease;
