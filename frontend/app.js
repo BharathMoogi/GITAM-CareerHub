@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCompaniesFilter();
   initReadinessCalculator();
   initFAQAccordion();
-  initAuthModal();
+
   initSmoothScroll();
 });
 
@@ -280,33 +280,6 @@ function initFAQAccordion() {
   });
 }
 
-/* 7. Auth Modal Trigger */
-function initAuthModal() {
-  const modal = document.getElementById('auth-modal');
-  const openBtns = document.querySelectorAll('.open-auth-btn');
-  const closeBtn = document.getElementById('modal-close');
-
-  openBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      modal.classList.add('active');
-    });
-  });
-
-  if (closeBtn) {
-    closeBtn.addEventListener('click', () => {
-      modal.classList.remove('active');
-    });
-  }
-
-  if (modal) {
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) {
-        modal.classList.remove('active');
-      }
-    });
-  }
-}
 
 /* 8. Smooth Scrolling */
 function initSmoothScroll() {
