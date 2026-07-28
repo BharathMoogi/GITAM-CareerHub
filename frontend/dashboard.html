@@ -6,6 +6,7 @@
   <title>Dashboard — GITAM CareerHub</title>
   <meta name="description" content="GITAM CareerHub Student Dashboard — Career Readiness, Roadmap, Tasks, AI Mentor">
   <link rel="stylesheet" href="dashboard.css">
+  <link rel="stylesheet" href="dashboard-views.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
@@ -483,119 +484,158 @@
 
       <!-- ── VIEW 2: ROADMAP ─────────────────────────────────────────── -->
       <div class="tab-view" id="view-roadmap">
-        <div class="card">
-          <div class="card-header">
-            <h3 class="card-title"><i class="fa-solid fa-diagram-project" style="color:var(--accent-light); margin-right:8px;"></i> Academic Roadmap & Milestone Engine</h3>
-            <span class="target-role-badge">Branch: ECE</span>
-          </div>
-          <p style="color:var(--text-muted); font-size:0.95rem; margin-bottom:16px;">Semester-by-semester milestone tracker powered by live backend API `/api/v1/roadmaps/`.</p>
-          <div class="activity-grid">
-            <div class="activity-item"><div class="activity-icon course-icon">S1</div><div><strong>Sem 1-2</strong><p class="activity-time">C Programming & Circuit Theory (Completed)</p></div></div>
-            <div class="activity-item"><div class="activity-icon project-icon">S3</div><div><strong>Sem 3-4</strong><p class="activity-time">Microcontrollers & Signals (Completed)</p></div></div>
-            <div class="activity-item"><div class="activity-icon cert-icon">S5</div><div><strong>Sem 5-6 (Current)</strong><p class="activity-time">RTOS, CAN Protocol & VLSI Design</p></div></div>
-            <div class="activity-item"><div class="activity-icon apply-icon">S7</div><div><strong>Sem 7-8</strong><p class="activity-time">Capstone Project & Campus Drives</p></div></div>
-          </div>
+        <div class="card-header" style="margin-bottom:16px;">
+          <h2 style="font-size:1.3rem;font-weight:700;color:var(--text-main);"><i class="fas fa-route" style="color:var(--accent-light);margin-right:8px;"></i>Academic Roadmap & Milestone Engine</h2>
         </div>
+        <div id="roadmap-content"></div>
       </div>
 
       <!-- ── VIEW 3: COURSES ─────────────────────────────────────────── -->
       <div class="tab-view" id="view-courses">
-        <div class="card">
-          <div class="card-header">
-            <h3 class="card-title"><i class="fa-solid fa-book-open" style="color:var(--accent-light); margin-right:8px;"></i> Courses & Skill Tracks</h3>
-          </div>
-          <div class="activity-grid">
-            <div class="activity-item"><div class="activity-icon course-icon">1</div><div><strong>Real-Time Operating Systems (RTOS)</strong><p class="activity-time">Progress: 85% • Enrolled</p></div></div>
-            <div class="activity-item"><div class="activity-icon course-icon">2</div><div><strong>Embedded C & ARM Cortex-M</strong><p class="activity-time">Progress: 100% • Certificate Earned</p></div></div>
-            <div class="activity-item"><div class="activity-icon course-icon">3</div><div><strong>CAN & Automotive Protocols</strong><p class="activity-time">Progress: 40% • In Progress</p></div></div>
-            <div class="activity-item"><div class="activity-icon course-icon">4</div><div><strong>Verilog & VLSI Design Basics</strong><p class="activity-time">Recommended for ECE Sem 6</p></div></div>
-          </div>
+        <div class="card-header" style="margin-bottom:16px;">
+          <h2 style="font-size:1.3rem;font-weight:700;color:var(--text-main);"><i class="fas fa-book-open" style="color:var(--accent-light);margin-right:8px;"></i>Courses & Skill Tracks</h2>
         </div>
+        <div id="courses-content"></div>
       </div>
 
       <!-- ── VIEW 4: PROJECTS ────────────────────────────────────────── -->
       <div class="tab-view" id="view-projects">
-        <div class="card">
-          <div class="card-header">
-            <h3 class="card-title"><i class="fa-solid fa-laptop-code" style="color:var(--accent-light); margin-right:8px;"></i> Industry Projects & Submissions</h3>
-          </div>
-          <div class="activity-grid">
-            <div class="activity-item"><div class="activity-icon project-icon">P1</div><div><strong>CAN Bus Vehicle Telemetry System</strong><p class="activity-time">Submitted • Reviewed by AI</p></div></div>
-            <div class="activity-item"><div class="activity-icon project-icon">P2</div><div><strong>STM32 FreeRTOS Task Scheduler</strong><p class="activity-time">Completed • Score: 95/100</p></div></div>
-            <div class="activity-item"><div class="activity-icon project-icon">P3</div><div><strong>Autonomous Rover with ROS2</strong><p class="activity-time">In Progress • Target: 15 June</p></div></div>
-          </div>
+        <div class="card-header" style="margin-bottom:16px;">
+          <h2 style="font-size:1.3rem;font-weight:700;color:var(--text-main);"><i class="fas fa-laptop-code" style="color:var(--accent-light);margin-right:8px;"></i>Industry Projects & Submissions</h2>
         </div>
+        <div id="projects-content"></div>
       </div>
 
       <!-- ── VIEW 5: CERTIFICATIONS ─────────────────────────────────── -->
       <div class="tab-view" id="view-certifications">
-        <div class="card">
-          <div class="card-header">
-            <h3 class="card-title"><i class="fa-solid fa-award" style="color:var(--accent-light); margin-right:8px;"></i> Certifications Vault</h3>
-          </div>
-          <div class="activity-grid">
-            <div class="activity-item"><div class="activity-icon cert-icon">C1</div><div><strong>NPTEL Embedded Systems Design</strong><p class="activity-time">Verified • Gold Medal</p></div></div>
-            <div class="activity-item"><div class="activity-icon cert-icon">C2</div><div><strong>Bosch Automotive Systems Certified</strong><p class="activity-time">Verified</p></div></div>
-            <div class="activity-item"><div class="activity-icon cert-icon">C3</div><div><strong>Arm Education Microcontroller Certificate</strong><p class="activity-time">Verified</p></div></div>
-          </div>
+        <div class="card-header" style="margin-bottom:16px;">
+          <h2 style="font-size:1.3rem;font-weight:700;color:var(--text-main);"><i class="fas fa-award" style="color:var(--accent-light);margin-right:8px;"></i>Certifications Vault</h2>
         </div>
+        <div id="certifications-content"></div>
       </div>
 
       <!-- ── VIEW 6: COMPANIES ───────────────────────────────────────── -->
       <div class="tab-view" id="view-companies">
-        <div class="card">
-          <div class="card-header">
-            <h3 class="card-title"><i class="fa-solid fa-building" style="color:var(--accent-light); margin-right:8px;"></i> Recruiter & Company Readiness</h3>
-          </div>
-          <div class="activity-grid">
-            <div class="activity-item"><div class="company-logo bosch-logo">B</div><div><strong>Bosch Automotive</strong><p class="activity-time">Match: 82% • Hiring status: Open</p></div></div>
-            <div class="activity-item"><div class="company-logo ti-logo">TI</div><div><strong>Texas Instruments</strong><p class="activity-time">Match: 76% • Hiring status: Open</p></div></div>
-            <div class="activity-item"><div class="company-logo nxp-logo">NXP</div><div><strong>NXP Semiconductors</strong><p class="activity-time">Match: 72% • Hiring status: Upcoming</p></div></div>
-          </div>
+        <div class="card-header" style="margin-bottom:16px;">
+          <h2 style="font-size:1.3rem;font-weight:700;color:var(--text-main);"><i class="fas fa-building" style="color:var(--accent-light);margin-right:8px;"></i>Recruiter & Company Readiness</h2>
         </div>
+        <div id="companies-content"></div>
       </div>
 
       <!-- ── VIEW 7: INTERNSHIPS ─────────────────────────────────────── -->
       <div class="tab-view" id="view-internships">
-        <div class="card">
-          <div class="card-header">
-            <h3 class="card-title"><i class="fa-solid fa-briefcase" style="color:var(--accent-light); margin-right:8px;"></i> Internship Portal</h3>
-          </div>
-          <div class="activity-grid">
-            <div class="activity-item"><div class="activity-icon apply-icon">I1</div><div><strong>Bosch Embedded Intern</strong><p class="activity-time">Applied • Status: Shortlisted</p></div></div>
-            <div class="activity-item"><div class="activity-icon apply-icon">I2</div><div><strong>TI Firmware Engineering Intern</strong><p class="activity-time">Applied • Status: Under Review</p></div></div>
-          </div>
+        <div class="card-header" style="margin-bottom:16px;">
+          <h2 style="font-size:1.3rem;font-weight:700;color:var(--text-main);"><i class="fas fa-briefcase" style="color:var(--accent-light);margin-right:8px;"></i>Internship Portal</h2>
         </div>
+        <div id="internships-content"></div>
       </div>
 
       <!-- ── VIEW 8: PLACEMENTS ──────────────────────────────────────── -->
       <div class="tab-view" id="view-placements">
-        <div class="card">
-          <div class="card-header">
-            <h3 class="card-title"><i class="fa-solid fa-user-graduate" style="color:var(--accent-light); margin-right:8px;"></i> Placement Drives & Offers</h3>
-          </div>
-          <div class="activity-grid">
-            <div class="activity-item"><div class="activity-icon cert-icon">O1</div><div><strong>Bosch India Offer</strong><p class="activity-time">Package: 14.5 LPA • Role: Embedded Engineer</p></div></div>
-          </div>
+        <div class="card-header" style="margin-bottom:16px;">
+          <h2 style="font-size:1.3rem;font-weight:700;color:var(--text-main);"><i class="fas fa-user-graduate" style="color:var(--accent-light);margin-right:8px;"></i>Placement Drives & Offers</h2>
         </div>
+        <div id="placements-content"></div>
       </div>
 
       <!-- ── VIEW 9: AI MENTOR ───────────────────────────────────────── -->
       <div class="tab-view" id="view-ai-mentor">
-        <div class="card">
-          <div class="card-header">
-            <h3 class="card-title"><i class="fa-solid fa-brain" style="color:var(--accent-light); margin-right:8px;"></i> AI Career Mentor Console</h3>
-          </div>
-          <div class="ai-highlight">
-              <p class="activity-text">Earned certificate in C Programming</p>
-              <span class="activity-time">3 days ago</span>
+        <div class="ai-mentor-layout">
+          <!-- Sidebar: Conversations -->
+          <div class="ai-sidebar">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Conversations</h3>
+                <button class="btn-new-conv" onclick="aiConversationId=null;document.getElementById('ai-messages').innerHTML='<div class=\'ai-welcome\'><span>🤖</span><p>Start a new conversation!</p></div>';">
+                  <i class="fas fa-plus"></i> New
+                </button>
+              </div>
+              <div id="ai-conv-list" class="ai-conv-list"></div>
             </div>
           </div>
-          <div class="activity-item">
-            <div class="activity-icon apply-icon"><i class="fas fa-briefcase"></i></div>
-            <div class="activity-info">
-              <p class="activity-text">Applied for Bosch Internship</p>
-              <span class="activity-time">4 days ago</span>
+          <!-- Main: Chat -->
+          <div class="ai-main">
+            <div class="card ai-chat-card">
+              <div class="card-header">
+                <div style="display:flex;align-items:center;gap:10px;">
+                  <div class="ai-icon-wrap"><i class="fas fa-robot"></i></div>
+                  <h3 class="card-title">AI Career Mentor</h3>
+                </div>
+                <select id="ai-tool-select" class="week-select">
+                  <option value="career_advisor">Career Advisor</option>
+                  <option value="roadmap_advisor">Roadmap Advisor</option>
+                  <option value="skill_gap_analyzer">Skill Gap Analyzer</option>
+                  <option value="resume_advisor">Resume Advisor</option>
+                  <option value="interview_coach">Interview Coach</option>
+                  <option value="company_readiness">Company Readiness</option>
+                  <option value="project_recommender">Project Recommender</option>
+                  <option value="certification_recommender">Cert Recommender</option>
+                  <option value="weekly_planner">Weekly Planner</option>
+                </select>
+              </div>
+              <div id="ai-messages" class="ai-messages">
+                <div class="ai-welcome">
+                  <span>🤖</span>
+                  <p>Hi! I'm your AI Career Mentor. Ask me anything about your career path, skills, or job readiness!</p>
+                </div>
+              </div>
+              <div class="ai-input-row">
+                <input type="text" id="ai-input" class="ai-input" placeholder="Ask your AI Mentor..." onkeydown="if(event.key==='Enter')sendAIMessage()">
+                <button class="btn-ai-send" onclick="sendAIMessage()">
+                  <i class="fas fa-paper-plane"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── VIEW 10: RESUME ─────────────────────────────────────────────── -->
+      <div class="tab-view" id="view-resume">
+        <div class="card-header" style="margin-bottom:16px;">
+          <h2 style="font-size:1.3rem;font-weight:700;color:var(--text-main);"><i class="fas fa-file-alt" style="color:var(--accent-light);margin-right:8px;"></i>Resume & Portfolio</h2>
+        </div>
+        <div id="resume-content"></div>
+      </div>
+
+      <!-- ── VIEW 11: LEADERBOARD ───────────────────────────────────────── -->
+      <div class="tab-view" id="view-leaderboard">
+        <div class="card-header" style="margin-bottom:16px;">
+          <h2 style="font-size:1.3rem;font-weight:700;color:var(--text-main);"><i class="fas fa-trophy" style="color:var(--accent-light);margin-right:8px;"></i>Leaderboard & Rankings</h2>
+        </div>
+        <div id="leaderboard-content"></div>
+      </div>
+
+      <!-- ── VIEW 12: PROFILE ────────────────────────────────────────────── -->
+      <div class="tab-view" id="view-profile">
+        <div class="card-header" style="margin-bottom:16px;">
+          <h2 style="font-size:1.3rem;font-weight:700;color:var(--text-main);"><i class="fas fa-user-circle" style="color:var(--accent-light);margin-right:8px;"></i>Student Profile</h2>
+        </div>
+        <div id="profile-content"></div>
+      </div>
+
+      <!-- ── VIEW 13: SETTINGS ───────────────────────────────────────────── -->
+      <div class="tab-view" id="view-settings">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title"><i class="fas fa-cog" style="color:var(--accent-light);margin-right:8px;"></i>Account & System Settings</h3>
+          </div>
+          <div class="settings-grid">
+            <div class="settings-section">
+              <h4 class="settings-section-title">Appearance</h4>
+              <div class="settings-row">
+                <span>Dark Mode</span>
+                <label class="toggle-switch">
+                  <input type="checkbox" id="settings-dark-toggle" onchange="applyTheme(this.checked);localStorage.setItem('theme',this.checked?'dark':'light');">
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+            </div>
+            <div class="settings-section">
+              <h4 class="settings-section-title">Session</h4>
+              <button class="btn-logout" onclick="localStorage.removeItem('access_token');sessionStorage.removeItem('access_token');window.location.href='/landing/login.html';">
+                <i class="fas fa-sign-out-alt"></i> Sign Out
+              </button>
             </div>
           </div>
         </div>
@@ -604,6 +644,7 @@
     </main>
   </div>
 
+  <script src="api.js"></script>
   <script src="dashboard.js"></script>
 </body>
 </html>
