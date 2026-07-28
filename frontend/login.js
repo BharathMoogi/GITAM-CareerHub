@@ -68,15 +68,12 @@ function initMyGitamForm() {
 
       if (response.ok && data.data && data.data.access_token) {
         localStorage.setItem('access_token', data.data.access_token);
-        alert(`Welcome to GITAM CareerHub! Role: ${currentRole.toUpperCase()}`);
-        window.location.href = '/landing/';
+        window.location.href = 'dashboard.html';
       } else {
-        alert(`Welcome back to GITAM CareerHub! Signed in as ${username}.`);
-        window.location.href = '/landing/';
+        window.location.href = 'dashboard.html';
       }
     } catch (err) {
-      alert(`Welcome back to GITAM CareerHub! Signed in as ${username}.`);
-      window.location.href = '/landing/';
+      window.location.href = 'dashboard.html';
     } finally {
       submitBtn.textContent = originalText;
       submitBtn.disabled = false;
