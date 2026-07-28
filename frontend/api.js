@@ -135,6 +135,13 @@ const CareerHubAPI = {
     weeklyPlan: () => CareerHubAPI.get('/ai/weekly-plan'),
   },
 
+  /* ── Notifications ──────────────────────────────────────── */
+  notifications: {
+    list: (status, category) => CareerHubAPI.get('/notifications', { status, category }),
+    unreadCount: () => CareerHubAPI.get('/notifications/unread-count'),
+    markRead: (id) => CareerHubAPI.post(`/notifications/${id}/read`),
+  },
+
   /* ── Resume ────────────────────────────────────────────── */
   resume: {
     profile: () => CareerHubAPI.get('/resume'),

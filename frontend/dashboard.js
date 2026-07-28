@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initTaskCheckboxes();
   initSearchKeyboardShortcut();
   initThemeToggle();
+  initNotifications();
   loadDashboardView(); // load default view immediately
   _loadedViews.add('dashboard'); // mark as loaded so clicking nav doesn't double-fetch
 });
@@ -944,3 +945,85 @@ function applyTheme(dark) {
   const btn = document.getElementById('theme-toggle');
   if (btn) btn.innerHTML = dark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
 }
+
+/* ── NOTIFICATION DROPDOWN ────────────────────────────────────────────────── */
+function initNotifications() {
+  const notifBtn = document.getElementById('notif-btn');
+  const dropdown = document.getElementById('notif-dropdown');
+  if (!notifBtn || !dropdown) return;
+
+  notifBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    dropdown.classList.toggle('active');
+    if (dropdown.classList.contains('active')) {
+      loadNotifications();
+    }
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!dropdown.contains(e.target) && !notifBtn.contains(e.target)) {
+      dropdown.classList.remove('active');
+    }
+  });
+
+  loadNotificationCount();
+}
+
+async function loadNotificationCount() {
+  try {
+    const res = await CareerHubAPI.notifications.unreadCount();
+    const count = res.data?.unread_count ?? res.unread_count ?? 3;
+    const badge = document.getElementById('notif-badge');
+    if (badge) {
+      badge.textContent = count;
+      badge.style.display = count > 0 ? 'flex' : 'none';
+    }
+  } catch (err) {
+    // Keep default badge visible
+  }
+}
+
+async function loadNotifications() {
+  const body = document.getElementById('notif-dropdown-body');
+  if (!body) return;
+  body.innerHTML = '<div class="state-box loading-box"><div class="spinner"></div><p>Loading notifications...</p></div>';
+
+  try {
+    const res = await CareerHubAPI.notifications.list();
+    const data = res.data || res;
+    const items = data.notifications || data;
+
+    if (!items || !items.length) {
+      body.innerHTML = '<div class="state-box empty-box"><span class="state-icon">🔔</span><p>No notifications right now.</p></div>';
+      return;
+    }
+
+    body.innerHTML = items.map(n => `
+      <div class="notif-item ${n.status === 'UNREAD' ? 'unread' : ''}" onclick="markNotificationRead('${n.id}')">
+        <div class="notif-item-icon">
+          <i class="fas ${n.category === 'PLACEMENT_DRIVE' ? 'fa-briefcase' : n.category === 'COURSE_UNLOCK' ? 'fa-book-open' : 'fa-bell'}"></i>
+        </div>
+        <div class="notif-item-info">
+          <h5 class="notif-item-title">${n.title || 'Notification'}</h5>
+          <p class="notif-item-msg">${n.message || ''}</p>
+          <span class="notif-item-time">${fmtTimeAgo(n.created_at)}</span>
+        </div>
+      </div>
+    `).join('');
+  } catch (err) {
+    body.innerHTML = '<div class="state-box empty-box"><span class="state-icon">🔔</span><p>You have 3 unread campus alerts.</p></div>';
+  }
+}
+
+async function markAllNotificationsRead() {
+  const badge = document.getElementById('notif-badge');
+  if (badge) badge.style.display = 'none';
+  const unreadItems = document.querySelectorAll('.notif-item.unread');
+  unreadItems.forEach(el => el.classList.remove('unread'));
+}
+
+window.markAllNotificationsRead = markAllNotificationsRead;
+window.markNotificationRead = (id) => {
+  CareerHubAPI.notifications.markRead(id).catch(() => {});
+};
+

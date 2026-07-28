@@ -665,3 +665,100 @@
   transition: background 0.2s;
 }
 .btn-logout:hover { background: #DC2626; color: #fff; }
+
+/* ── NOTIFICATION DROPDOWN ────────────────────────────────────────────────── */
+.notif-dropdown {
+  position: absolute;
+  top: 55px;
+  right: 80px;
+  width: 360px;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  display: none;
+  flex-direction: column;
+  z-index: 250;
+  overflow: hidden;
+}
+.notif-dropdown.active {
+  display: flex;
+}
+.notif-dropdown-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  border-bottom: 1px solid #F1F5F9;
+  background: #FAFAFA;
+}
+.notif-dropdown-header h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1E293B;
+  margin: 0;
+}
+.btn-mark-read {
+  background: none;
+  border: none;
+  color: #0C7A6B;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn-mark-read:hover { text-decoration: underline; }
+.notif-dropdown-body {
+  max-height: 380px;
+  overflow-y: auto;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.notif-item {
+  padding: 10px 12px;
+  border-radius: 8px;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  transition: background 0.15s;
+  cursor: pointer;
+}
+.notif-item:hover { background: #F8FAFC; }
+.notif-item.unread { background: #F0FDF9; }
+.notif-item-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #E4F4F1;
+  color: #0C7A6B;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+.notif-item-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #1E293B;
+  margin: 0 0 2px 0;
+}
+.notif-item-msg {
+  font-size: 0.78rem;
+  color: #64748B;
+  margin: 0;
+  line-height: 1.4;
+}
+.notif-item-time {
+  font-size: 0.7rem;
+  color: #94A3B8;
+  margin-top: 4px;
+  display: block;
+}
+.notif-svg {
+  transition: stroke 0.2s;
+}
+.notif-btn:hover .notif-svg {
+  stroke: #0C7A6B;
+}

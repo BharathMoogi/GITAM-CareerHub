@@ -97,15 +97,30 @@
         <input type="text" id="global-search" placeholder="Search for courses, projects, companies..." class="search-input">
         <kbd class="search-kbd">⌘ K</kbd>
       </div>
-      <div class="topbar-right">
+      <div class="topbar-right" style="position: relative;">
         <button class="icon-btn notif-btn" id="notif-btn" title="Notifications">
-          <i class="fas fa-bell"></i>
-          <span class="badge">3</span>
+          <svg class="notif-svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#64748B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+            <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+          </svg>
+          <span class="badge" id="notif-badge">3</span>
         </button>
+
+        <!-- Notification Dropdown Panel -->
+        <div class="notif-dropdown" id="notif-dropdown">
+          <div class="notif-dropdown-header">
+            <h4>Notifications</h4>
+            <button class="btn-mark-read" onclick="markAllNotificationsRead()">Mark all as read</button>
+          </div>
+          <div class="notif-dropdown-body" id="notif-dropdown-body">
+            <div class="state-box loading-box"><div class="spinner"></div><p>Loading notifications...</p></div>
+          </div>
+        </div>
+
         <button class="icon-btn theme-btn" id="theme-toggle" title="Toggle theme">
           <i class="fas fa-moon"></i>
         </button>
-        <div class="user-profile" id="user-profile-btn">
+        <div class="user-profile" id="user-profile-btn" onclick="document.querySelector('[data-page=profile]').click()">
           <div class="user-avatar">BM</div>
           <div class="user-info">
             <span class="user-name">Bharath M</span>
