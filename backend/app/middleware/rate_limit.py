@@ -25,8 +25,9 @@ logger = logging.getLogger("app.middleware.rate_limit")
 # In-memory sliding window store: {client_key: deque of timestamps}
 _request_log: Dict[str, Deque[float]] = defaultdict(deque)
 
-# Paths exempt from rate limiting
+# Paths exempt from rate limiting (exact match or prefix match)
 EXEMPT_PATHS = {"/health", "/metrics", "/docs", "/redoc", "/openapi.json", "/api/v1/openapi.json"}
+EXEMPT_PREFIXES = ("/landing/", "/uploads/", "/static/")
 
 
 class RateLimitMiddleware(BaseHTTPMiddleware):
@@ -36,7 +37,12 @@ class RateLimitMiddleware(BaseHTTPMiddleware):
         if not settings.FEATURE_RATE_LIMITING:
             return await call_next(request)
 
-        if request.url.path in EXEMPT_PATHS:
+        path = request.url.path
+        if path in EXEMPT_PATHS:
+            return await call_next(request)
+
+        # Exempt static file prefixes (landing pages, uploads, assets)
+        if any(path.startswith(p) for p in EXEMPT_PREFIXES):
             return await call_next(request)
 
         # Prefer authenticated user ID if available

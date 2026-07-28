@@ -10,7 +10,12 @@ document.addEventListener('DOMContentLoaded', () => {
   initSearchKeyboardShortcut();
   initThemeToggle();
   loadDashboardView(); // load default view immediately
+  _loadedViews.add('dashboard'); // mark as loaded so clicking nav doesn't double-fetch
 });
+
+// Cache to avoid re-fetching already-loaded views in the same session
+const _loadedViews = new Set();
+
 
 /* ── AUTH GUARD ─────────────────────────────────────────────────────────────── */
 function guardAuth() {
@@ -116,6 +121,10 @@ function initSidebarNav() {
 
 /* ── ROUTE PAGE DATA ─────────────────────────────────────────────────────────── */
 function fetchPageData(page) {
+  // Only fetch once per session — avoids re-hitting the API on repeat clicks
+  if (_loadedViews.has(page)) return;
+  _loadedViews.add(page);
+
   switch (page) {
     case 'dashboard':     loadDashboardView();    break;
     case 'roadmap':       loadRoadmapView();      break;

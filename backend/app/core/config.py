@@ -45,8 +45,8 @@ class Settings(BaseSettings):
     CACHE_LONG_TTL: int = 3600
 
     # Rate Limiting
-    RATE_LIMIT_PER_MINUTE: int = 60
-    RATE_LIMIT_BURST: int = 20
+    RATE_LIMIT_PER_MINUTE: int = 300   # dev: high limit; set lower in production .env
+    RATE_LIMIT_BURST: int = 50
 
     # Security & JWT
     SECRET_KEY: str = "gitam-careerhub-super-secret-key-production-change-me-32chars"
