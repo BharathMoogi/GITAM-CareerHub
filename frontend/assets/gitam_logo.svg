@@ -1,44 +1,30 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 130" width="400" height="130">
-  <style>
-    .gitam-text { font-family: 'Inter', 'Segoe UI', -apple-system, sans-serif; font-weight: 800; fill: #005C45; }
-    .gitam-subtext { font-family: 'Inter', 'Segoe UI', -apple-system, sans-serif; font-weight: 700; fill: #005C45; letter-spacing: 1.2px; }
-  </style>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 160" width="500" height="160">
+  <g transform="translate(10, 10)">
+    <!-- High Resolution GITAM Emblem -->
+    <g transform="scale(1.15)">
+      <!-- Outer Teal Green Pinwheel Ring -->
+      <path fill="#005C45" d="
+        M 55,12 
+        C 62,12 68,15 74,20 C 78,14 84,9 92,6 C 88,14 86,22 88,28 C 95,22 102,18 110,16 C 105,24 103,32 105,40 C 113,34 120,31 128,30 C 122,38 118,47 118,56 C 125,52 132,51 138,52 C 130,60 124,69 122,79 C 127,77 132,77 137,79 C 128,86 121,95 115,105 C 118,109 119,114 118,118 C 108,110 100,104 90,100 C 90,106 88,112 84,118 C 78,110 70,104 60,100 C 56,106 52,112 46,116 C 46,108 44,100 40,94 C 32,98 24,104 16,112 C 20,102 22,92 22,82 C 14,84 6,88 -2,94 C 4,84 10,74 18,68 C 10,66 2,66 -4,68 C 4,58 14,50 24,46 C 18,42 12,40 6,40 C 16,34 26,32 36,34 C 34,26 32,18 32,10 C 38,16 42,22 44,30 C 47,20 49,14 55,12 Z
+      "/>
+      
+      <!-- Inner Solid Green Circle -->
+      <circle cx="58" cy="62" r="32" fill="#005C45" />
 
-  <!-- Official GITAM Emblem (Emblem Circle + Soaring Bird + Pinwheel Fins) -->
-  <g transform="translate(15, 10)">
-    <!-- Outer Pinwheel Fins Ring -->
-    <path fill="#005C45" d="
-      M 55,5 
-      C 60,5 65,8 68,12 C 60,15 54,20 50,26 C 58,22 66,20 74,22 C 78,23 81,25 83,28 C 74,28 66,31 60,36 C 68,34 76,34 83,37 C 87,39 89,42 90,46 C 81,43 73,43 66,46 C 74,47 81,50 86,55 C 89,58 90,62 89,66 C 80,60 72,58 64,59 C 71,63 77,68 81,75 C 83,79 83,83 81,87 C 73,79 66,75 58,74 C 64,80 68,87 70,95 C 70,99 69,103 66,106 C 60,97 54,91 46,88 C 50,96 52,104 52,112 C 50,115 47,117 43,117 C 40,107 35,99 28,94 C 30,103 30,111 28,119 C 25,121 21,121 18,119 C 20,109 19,100 14,92 C 14,101 12,109 8,116 C 5,117 2,116 0,113 C 4,104 6,94 4,84
-    "/>
-
-    <!-- Soaring Bird Negative Space Curve in Center -->
-    <path fill="#005C45" d="
-      M 48,22 
-      A 38,38 0 1 0 86,60 
-      A 38,38 0 0 0 48,22 Z
-      M 32,84
-      C 22,80 16,68 18,54
-      C 20,40 30,30 42,28
-      C 34,36 32,48 38,58
-      C 44,68 56,72 68,68
-      C 56,82 42,88 32,84 Z
-    "/>
-
-    <!-- Crisp White Bird Silhouette -->
-    <path fill="#FFFFFF" d="
-      M 32,84
-      C 22,80 16,68 18,54
-      C 20,40 30,30 42,28
-      C 34,36 32,48 38,58
-      C 44,68 56,72 68,68
-      C 56,82 42,88 32,84 Z
-    "/>
+      <!-- High Clarity White Crescent Cutout -->
+      <path fill="#FFFFFF" d="
+        M 42,38 
+        C 30,48 26,65 34,78 
+        C 42,91 58,97 72,89 
+        C 56,93 40,85 36,69 
+        C 32,53 40,42 42,38 Z
+      "/>
+    </g>
   </g>
 
-  <!-- Typography matching exact GITAM logo branding -->
-  <g transform="translate(155, 32)">
-    <text x="0" y="42" class="gitam-text" font-size="52" letter-spacing="1">GITAM</text>
-    <text x="2" y="64" class="gitam-subtext" font-size="11.5">DEEMED TO BE UNIVERSITY</text>
+  <!-- Typography matching official My-GITAM Branding -->
+  <g transform="translate(170, 42)">
+    <text x="0" y="44" font-family="'Inter', 'Arial Black', sans-serif" font-weight="900" font-size="52" fill="#005C45" letter-spacing="1.5">GITAM</text>
+    <text x="2" y="66" font-family="'Inter', 'Segoe UI', sans-serif" font-weight="800" font-size="11.5" fill="#005C45" letter-spacing="2">DEEMED TO BE UNIVERSITY</text>
   </g>
 </svg>
