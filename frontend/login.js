@@ -39,44 +39,18 @@ function initMyGitamForm() {
 
   if (!form) return;
 
-  form.addEventListener('submit', async (e) => {
+  form.addEventListener('submit', (e) => {
     e.preventDefault();
-
-    const username = document.getElementById('username').value.trim();
-    const password = document.getElementById('password').value.trim();
-
-    if (!username || !password) {
-      alert('Please fill in both username and password fields.');
-      return;
-    }
-
-    const originalText = submitBtn.textContent;
     submitBtn.textContent = 'LOGGING IN...';
     submitBtn.disabled = true;
 
-    try {
-      const response = await fetch('/api/v1/auth/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          email: username.includes('@') ? username : `${username}@gitam.in`,
-          password: password
-        })
-      });
+    // Save mock user session and redirect immediately to Student Dashboard
+    localStorage.setItem('user_logged_in', 'true');
+    localStorage.setItem('user_name', 'Bharath M');
+    localStorage.setItem('user_role', currentRole);
 
-      const data = await response.json();
-
-      if (response.ok && data.data && data.data.access_token) {
-        localStorage.setItem('access_token', data.data.access_token);
-        window.location.href = 'dashboard.html';
-      } else {
-        window.location.href = 'dashboard.html';
-      }
-    } catch (err) {
+    setTimeout(() => {
       window.location.href = 'dashboard.html';
-    } finally {
-      submitBtn.textContent = originalText;
-      submitBtn.disabled = false;
-    }
+    }, 200);
   });
 }
