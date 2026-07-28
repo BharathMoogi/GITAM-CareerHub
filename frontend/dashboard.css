@@ -1,13 +1,13 @@
 /* ==========================================================================
    GITAM CareerHub — Student Dashboard CSS
-   Exact match to official My-GITAM CareerHub Dashboard Layout & Colors
+   Pixel-perfect match to official GITAM CareerHub Dashboard
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap');
 
 :root {
   --primary-teal: #005C45;
-  --primary-teal-dark: #004634;
+  --primary-teal-dark: #004533;
   --accent-teal: #007A63;
   --accent-light: #0C7A6B;
   --bg-app: #F4F7F6;
@@ -447,6 +447,7 @@ html, body {
   font-weight: 800;
   color: var(--text-main);
   line-height: 1;
+}
 
 .stat-of {
   font-size: 1rem;
@@ -573,6 +574,7 @@ html, body {
   display: flex;
   flex-direction: column;
   gap: 12px;
+}
 
 .task-item {
   display: flex;
@@ -700,6 +702,7 @@ html, body {
   display: flex;
   flex-direction: column;
   gap: 12px;
+}
 
 .deadline-item {
   display: flex;
@@ -953,7 +956,7 @@ html, body {
 }
 
 .course-icon { background-color: #E4F4F1; color: var(--accent-light); }
-.project-icon { background-color: #E0E7FF; color: #4338CA; }
+.project-icon { background-color: #E0E0FF; color: #4338CA; }
 .cert-icon { background-color: #FEF3C7; color: #D97706; }
 .apply-icon { background-color: #DCFCE7; color: #15803D; }
 
