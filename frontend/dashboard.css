@@ -90,12 +90,14 @@ html, body {
   transition: all 0.2s ease;
 }
 
-.nav-item i {
-  font-size: 1.1rem;
-  width: 22px;
-  text-align: center;
+.nav-item i,
+.nav-item .nav-svg {
+  width: 20px;
+  height: 20px;
+  stroke: #D1E6E1;
   color: #D1E6E1;
-  transition: color 0.2s ease;
+  flex-shrink: 0;
+  transition: stroke 0.2s ease, color 0.2s ease;
 }
 
 .nav-item:hover {
@@ -103,7 +105,9 @@ html, body {
   color: #FFFFFF;
 }
 
-.nav-item:hover i {
+.nav-item:hover i,
+.nav-item:hover .nav-svg {
+  stroke: #FFFFFF;
   color: #FFFFFF;
 }
 
@@ -114,7 +118,9 @@ html, body {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-.nav-item.active i {
+.nav-item.active i,
+.nav-item.active .nav-svg {
+  stroke: #FFFFFF;
   color: #FFFFFF;
 }
 
