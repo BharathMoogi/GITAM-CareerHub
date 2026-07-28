@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GITAM CareerHub — Build Your Career Before Graduation</title>
+  <meta name="description" content="The official Career Command Center for GITAM Engineering Students. Guiding every student from first year to dream placement with AI Mentorship, Branch Roadmaps, and Industry Projects.">
+
+  <!-- Open Graph / Meta -->
+  <meta property="og:title" content="GITAM CareerHub — Career Command Center">
+  <meta property="og:description" content="One platform that guides every engineering student from first year to placement.">
+  <meta property="og:type" content="website">
+
+  <!-- Fonts & Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Ambient Glow Effects -->
+  <div class="ambient-glow glow-top-left"></div>
+  <div class="ambient-glow glow-top-right"></div>
+  <div class="ambient-glow glow-bottom-center"></div>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="#" class="logo-wrapper" id="nav-logo">
+        <div class="logo-icon">G</div>
+        <div class="logo-text">GITAM <span>CareerHub</span></div>
+      </a>
+
+      <ul class="nav-links" id="nav-menu">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#journey" class="nav-link">Career Journey</a></li>
+        <li><a href="#features" class="nav-link">Features</a></li>
+        <li><a href="#roadmaps" class="nav-link">Roadmaps</a></li>
+        <li><a href="#companies" class="nav-link">Companies</a></li>
+        <li><a href="#faq" class="nav-link">FAQ</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="btn btn-secondary open-auth-btn" id="nav-login-btn">Login</button>
+        <button class="btn btn-gold open-auth-btn" id="nav-get-started-btn">Get Started</button>
+      </div>
+
+      <button class="mobile-menu-btn" id="mobile-toggle" aria-label="Toggle Navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section" id="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <i class="fas fa-sparkles"></i> GITAM Engineering Career Command Center
+          </div>
+
+          <h1 class="hero-title text-gradient-blue">
+            Build Your Career <br>
+            <span class="text-gradient-gold">Before Graduation.</span>
+          </h1>
+
+          <p class="hero-subtitle">
+            One platform that guides every engineering student from first year to placement — combining branch roadmaps, AI mentorship, real industry projects, and automated placement drives.
+          </p>
+
+          <div class="hero-ctas">
+            <a href="#calculator" class="btn btn-gold btn-lg" id="hero-cta-get-started">
+              Get Started <i class="fas fa-arrow-right"></i>
+            </a>
+            <a href="#roadmaps" class="btn btn-secondary btn-lg" id="hero-cta-explore-roadmaps">
+              <i class="fas fa-compass"></i> Explore Roadmaps
+            </a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat-item">
+              <h4 id="stat-students">8,500+</h4>
+              <p>Engineering Students</p>
+            </div>
+            <div class="stat-item">
+              <h4 id="stat-placements">96.4%</h4>
+              <p>Placement Rate</p>
+            </div>
+            <div class="stat-item">
+              <h4 id="stat-companies">150+</h4>
+              <p>Hiring Partners</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right side: Modern Illustration of Engineering Students -->
+        <div class="hero-visual">
+          <div class="hero-image-wrapper">
+            <img src="assets/hero_engineering.jpg" alt="GITAM Engineering Students learning AI, Embedded Systems, Robotics, VLSI and Software" class="hero-img" id="hero-illustration">
+
+            <!-- Floating Tech Badges -->
+            <div class="floating-tag tag-ai">
+              <div class="tag-icon icon-ai"><i class="fas fa-brain"></i></div>
+              <div>AI & Deep Learning</div>
+            </div>
+
+            <div class="floating-tag tag-embedded">
+              <div class="tag-icon icon-embedded"><i class="fas fa-microchip"></i></div>
+              <div>Embedded Systems</div>
+            </div>
+
+            <div class="floating-tag tag-robotics">
+              <div class="tag-icon icon-robotics"><i class="fas fa-robot"></i></div>
+              <div>Robotics & ROS2</div>
+            </div>
+
+            <div class="floating-tag tag-vlsi">
+              <div class="tag-icon icon-vlsi"><i class="fas fa-memory"></i></div>
+              <div>VLSI Chip Design</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="section section-alt" id="about">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-tag"><i class="fas fa-university"></i> Empowering GITAM Engineers</span>
+        <h2 class="section-title text-gradient-blue">Designed Specifically for Engineering Success</h2>
+        <p class="section-subtitle">
+          Engineering education is no longer just about passing semester exams. GITAM CareerHub bridges the gap between university curriculum and high-paying industry expectations.
+        </p>
+      </div>
+
+      <div class="features-grid" style="grid-template-columns: repeat(3, 1fr);">
+        <div class="feature-card">
+          <div class="feature-icon-wrapper"><i class="fas fa-layer-group"></i></div>
+          <h3>Branch-Tailored Paths</h3>
+          <p>Whether you're in CSE, ECE, EEE, AIML, Robotics, or Mechanical, get step-by-step semester roadmaps tailored precisely to your specialization.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-wrapper" style="background: rgba(229, 169, 60, 0.12); color: var(--color-gitam-gold);"><i class="fas fa-robot"></i></div>
+          <h3>RAG AI Mentor</h3>
+          <p>Context-aware AI mentor that knows your branch, current semester, completed projects, and target companies to deliver instant career guidance.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-wrapper" style="background: rgba(16, 185, 129, 0.12); color: var(--color-emerald);"><i class="fas fa-trophy"></i></div>
+          <h3>5-Stage Placement Funnel</h3>
+          <p>Seamlessly transition from Shortlisting to Technical & HR Interviews with automated eligibility scoring and verified digital offer letters.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Career Journey Section -->
+  <section class="section" id="journey">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-tag"><i class="fas fa-route"></i> 4-Year Roadmap</span>
+        <h2 class="section-title text-gradient-blue">Your Engineering Career Journey</h2>
+        <p class="section-subtitle">
+          From your very first day on campus to landing your dream 20 LPA+ offer letter, every single semester is mapped with milestone clarity.
+        </p>
+      </div>
+
+      <!-- Year Tab Selector -->
+      <div class="timeline-tabs">
+        <button class="tab-btn journey-tab active" data-year="y1" id="tab-y1">Year 1 • Explorer</button>
+        <button class="tab-btn journey-tab" data-year="y2" id="tab-y2">Year 2 • Builder</button>
+        <button class="tab-btn journey-tab" data-year="y3" id="tab-y3">Year 3 • Professional</button>
+        <button class="tab-btn journey-tab" data-year="y4" id="tab-y4">Year 4 • Placement Ready</button>
+      </div>
+
+      <!-- Dynamic Journey Content -->
+      <div class="journey-content-card" id="journey-card">
+        <div>
+          <span class="journey-badge" id="journey-badge">Year 1 • Foundation & Exploration</span>
+          <h3 class="journey-title text-gradient-gold" id="journey-title">Discover Your Engineering Track</h3>
+          <p class="journey-desc" id="journey-desc">
+            Explore core engineering fundamentals, master Python & C++, construct your first GitHub repository, and choose your specialization track.
+          </p>
+          <ul class="journey-checklist" id="journey-checklist">
+            <li><i class="fas fa-check-circle"></i> <span>Core Programming & Data Structures Fundamentals</span></li>
+            <li><i class="fas fa-check-circle"></i> <span>Git & Open Source Contribution Setup</span></li>
+            <li><i class="fas fa-check-circle"></i> <span>Career Mentor Mapping & Skill Baseline Assessment</span></li>
+            <li><i class="fas fa-check-circle"></i> <span>Participation in 24-hr Freshman Hackathons</span></li>
+          </ul>
+        </div>
+
+        <div class="journey-visual-box">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+            <div style="font-weight: 700; color: white;" id="journey-level">Level 1: Explorer</div>
+            <div style="background: rgba(229, 169, 60, 0.2); color: var(--color-gitam-gold); padding: 4px 12px; border-radius: var(--radius-full); font-weight: 700; font-size: 0.85rem;" id="journey-xp">+500 XP</div>
+          </div>
+          <div style="background: rgba(255,255,255,0.05); height: 8px; border-radius: 4px; overflow: hidden; margin-bottom: 24px;">
+            <div style="width: 25%; background: linear-gradient(90deg, var(--color-gitam-blue), var(--color-gitam-gold)); height: 100%;"></div>
+          </div>
+          <div style="font-size: 0.85rem; color: var(--color-text-muted); line-height: 1.6;">
+            <i class="fas fa-shield-alt" style="color: var(--color-gitam-cyan); margin-right: 8px;"></i>
+            Completing Year 1 milestones unlocks verified badges: <strong>First Code</strong>, <strong>GitHub Initializer</strong>, and <strong>Basics Specialist</strong>.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section class="section section-alt" id="how-it-works">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-tag"><i class="fas fa-cogs"></i> System Architecture</span>
+        <h2 class="section-title text-gradient-blue">How GITAM CareerHub Works</h2>
+        <p class="section-subtitle">
+          A seamless 4-step execution flow that transforms student efforts into verified career readiness scores.
+        </p>
+      </div>
+
+      <div class="features-grid" style="grid-template-columns: repeat(4, 1fr); gap: 20px;">
+        <div class="feature-card" style="padding: 28px 20px;">
+          <div style="color: var(--color-gitam-gold); font-size: 2rem; font-weight: 800; margin-bottom: 12px;">01</div>
+          <h3>Choose Track</h3>
+          <p>Select your target role (Software, AI, Embedded, VLSI, Robotics) and branch curriculum.</p>
+        </div>
+
+        <div class="feature-card" style="padding: 28px 20px;">
+          <div style="color: var(--color-gitam-blue); font-size: 2rem; font-weight: 800; margin-bottom: 12px;">02</div>
+          <h3>Build & Earn XP</h3>
+          <p>Complete courses, push real code projects, and earn gamified badges and XP.</p>
+        </div>
+
+        <div class="feature-card" style="padding: 28px 20px;">
+          <div style="color: var(--color-gitam-cyan); font-size: 2rem; font-weight: 800; margin-bottom: 12px;">03</div>
+          <h3>AI Resume & Review</h3>
+          <p>Generate ATS-optimized resumes and portfolio sites verified by AI Mentor.</p>
+        </div>
+
+        <div class="feature-card" style="padding: 28px 20px;">
+          <div style="color: var(--color-emerald); font-size: 2rem; font-weight: 800; margin-bottom: 12px;">04</div>
+          <h3>Direct Placements</h3>
+          <p>Apply directly to Tier-1 recruitment drives with instant eligibility checks.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="section" id="features">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-tag"><i class="fas fa-cubes"></i> Powerful Engines</span>
+        <h2 class="section-title text-gradient-blue">Engineered for Maximum Career Potential</h2>
+        <p class="section-subtitle">
+          Eight integrated intelligence engines working synchronously behind a single unified student command center.
+        </p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon-wrapper"><i class="fas fa-chart-line"></i></div>
+          <h3>Dashboard Intelligence</h3>
+          <p>Zero data duplication. Dynamic real-time calculation of overall readiness, skill distribution, ranking, and placement odds.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-wrapper" style="background: rgba(229, 169, 60, 0.12); color: var(--color-gitam-gold);"><i class="fas fa-gamepad"></i></div>
+          <h3>Gamification Engine</h3>
+          <p>Level up from Level 1 Explorer to Level 6 Industry Ready. Earn XP, complete daily challenges, and climb college leaderboards.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-wrapper" style="background: rgba(139, 92, 246, 0.12); color: var(--color-purple);"><i class="fas fa-file-invoice"></i></div>
+          <h3>Resume & Portfolio AI</h3>
+          <p>Instant ATS scoring, STAR bullet point refactoring, and single-click personal developer portfolio website generation.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-wrapper" style="background: rgba(16, 185, 129, 0.12); color: var(--color-emerald);"><i class="fas fa-bell"></i></div>
+          <h3>Notification Engine</h3>
+          <p>5-channel event notification bus covering In-App, Email, Push, SMS, and WhatsApp alerts for upcoming drives and reminders.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-wrapper" style="background: rgba(0, 210, 255, 0.12); color: var(--color-gitam-cyan);"><i class="fas fa-building"></i></div>
+          <h3>Industry Intelligence</h3>
+          <p>Company-specific readiness scoring for Google, Bosch, Texas Instruments, NVIDIA, and Qualcomm with authentic interview Q&As.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-wrapper"><i class="fas fa-user-shield"></i></div>
+          <h3>Enterprise Admin CMS</h3>
+          <p>Multi-role RBAC for Super Admins, Faculty, and Placement Officers with audit logs, approval workflows, and CSV/Excel batch tools.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Career Readiness Score Calculator -->
+  <section class="section section-alt" id="calculator">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-tag"><i class="fas fa-calculator"></i> Interactive Tool</span>
+        <h2 class="section-title text-gradient-gold">Calculate Your Placement Readiness Score</h2>
+        <p class="section-subtitle">
+          Test our dynamic readiness engine right now! Select your academic parameters to see your instant readiness assessment.
+        </p>
+      </div>
+
+      <div class="calc-card">
+        <div>
+          <h3 style="font-size: 1.5rem; margin-bottom: 24px;">Enter Student Details</h3>
+
+          <div class="form-group">
+            <label for="calc-year">Current Academic Year</label>
+            <select id="calc-year" class="form-control">
+              <option value="1">1st Year (Freshman)</option>
+              <option value="2">2nd Year (Sophomore)</option>
+              <option value="3">3rd Year (Junior)</option>
+              <option value="4" selected>4th Year (Senior)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="calc-branch">Engineering Branch</label>
+            <select id="calc-branch" class="form-control">
+              <option value="CSE">Computer Science (CSE)</option>
+              <option value="AIML" selected>Artificial Intelligence & Machine Learning (AIML)</option>
+              <option value="ECE">Electronics & Communication (ECE)</option>
+              <option value="EEE">Electrical & Electronics (EEE)</option>
+              <option value="MECH">Mechanical & Robotics (MECH)</option>
+            </select>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <div class="form-group">
+              <label for="calc-projects">Completed Projects</label>
+              <input type="number" id="calc-projects" class="form-control" value="3" min="0" max="10">
+            </div>
+
+            <div class="form-group">
+              <label for="calc-certs">Industry Certifications</label>
+              <input type="number" id="calc-certs" class="form-control" value="2" min="0" max="10">
+            </div>
+          </div>
+        </div>
+
+        <div class="score-display-box">
+          <div class="score-circle">
+            <div class="score-num" id="calc-score">88</div>
+            <div class="score-label">Score / 100</div>
+          </div>
+
+          <h4 style="font-size: 1.25rem; margin-bottom: 8px;" id="calc-level">Placement Ready (Tier-1 Ready)</h4>
+          <p style="color: var(--color-text-muted); font-size: 0.9rem; margin-bottom: 20px;">
+            Eligible for top recruiters including Google, Bosch, NVIDIA, and Microsoft.
+          </p>
+
+          <div style="background: rgba(255,255,255,0.08); height: 10px; border-radius: 5px; overflow: hidden; margin-bottom: 20px;">
+            <div id="calc-bar" style="width: 88%; background: linear-gradient(90deg, var(--color-gitam-blue), var(--color-gitam-gold)); height: 100%; transition: var(--transition-normal);"></div>
+          </div>
+
+          <button class="btn btn-gold open-auth-btn" style="width: 100%;">Unlock Full Profile Dashboard</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Roadmaps Section -->
+  <section class="section" id="roadmaps">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-tag"><i class="fas fa-map-signs"></i> Specialized Paths</span>
+        <h2 class="section-title text-gradient-blue">Engineering Specialization Roadmaps</h2>
+        <p class="section-subtitle">
+          Curated semester-by-semester skill progression for high-demand engineering verticals.
+        </p>
+      </div>
+
+      <div class="roadmap-nav">
+        <button class="tab-btn roadmap-nav-btn active" data-category="all" id="rm-all">All Specializations</button>
+        <button class="tab-btn roadmap-nav-btn" data-category="software" id="rm-software">Software & Cloud</button>
+        <button class="tab-btn roadmap-nav-btn" data-category="hardware" id="rm-hardware">Embedded & VLSI</button>
+        <button class="tab-btn roadmap-nav-btn" data-category="ai" id="rm-ai">AI & ML</button>
+        <button class="tab-btn roadmap-nav-btn" data-category="robotics" id="rm-robotics">Robotics</button>
+      </div>
+
+      <div class="roadmap-card-grid" id="roadmap-grid">
+        <!-- Cards rendered dynamically by app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Companies Section -->
+  <section class="section section-alt" id="companies">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-tag"><i class="fas fa-briefcase"></i> Recruiter Network</span>
+        <h2 class="section-title text-gradient-blue">Top Recruiter Partners & Target Packages</h2>
+        <p class="section-subtitle">
+          GITAM CareerHub connects students with top product, core engineering, and hardware technology leaders.
+        </p>
+      </div>
+
+      <div class="company-logo-grid" id="company-grid">
+        <!-- Rendered by app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Student Testimonials Section -->
+  <section class="section" id="testimonials">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-tag"><i class="fas fa-star"></i> Student Voices</span>
+        <h2 class="section-title text-gradient-gold">Student Testimonials & Success Stories</h2>
+        <p class="section-subtitle">
+          Hear from GITAM engineering graduates who secured dream placements using the Career Command Center.
+        </p>
+      </div>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <p class="testimonial-text">
+            "GITAM CareerHub gave me a clear, month-by-month roadmap for AI & Machine Learning. The AI Mentor reviewed my projects and helped me land a 38 LPA package at NVIDIA!"
+          </p>
+          <div class="testimonial-author">
+            <div class="author-avatar">VS</div>
+            <div class="author-info">
+              <h4>Vikram S.</h4>
+              <p>B.Tech AIML (Placed at NVIDIA)</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <p class="testimonial-text">
+            "As an ECE student focusing on Embedded Systems, standard generic prep platforms didn't help. CareerHub's hardware roadmap & Bosch readiness tracks made all the difference."
+          </p>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="background: linear-gradient(135deg, #10B981, #06182E);">PR</div>
+            <div class="author-info">
+              <h4>Pooja R.</h4>
+              <p>B.Tech ECE (Placed at Bosch)</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <p class="testimonial-text">
+            "The gamification system kept me accountable every single week. Tracking my XP level from Level 1 Explorer to Level 6 Industry Ready gave me immense confidence during campus interviews."
+          </p>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="background: linear-gradient(135deg, #E5A93C, #8B5CF6);">AK</div>
+            <div class="author-info">
+              <h4>Anish K.</h4>
+              <p>B.Tech CSE (Placed at Microsoft)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="section section-alt" id="faq">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-tag"><i class="fas fa-question-circle"></i> Got Questions?</span>
+        <h2 class="section-title text-gradient-blue">Frequently Asked Questions</h2>
+        <p class="section-subtitle">
+          Everything you need to know about GITAM CareerHub access, features, and mentorship.
+        </p>
+      </div>
+
+      <div class="faq-accordion">
+        <div class="faq-item active">
+          <div class="faq-question">
+            <span>How do I get access to GITAM CareerHub?</span>
+            <i class="fas fa-chevron-down faq-toggle-icon"></i>
+          </div>
+          <div class="faq-answer">
+            All enrolled GITAM engineering students automatically receive access using their official GITAM university email credentials (`@gitam.in` or `@gitam.edu`). Simply click 'Login' and authenticate.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Which engineering branches are supported?</span>
+            <i class="fas fa-chevron-down faq-toggle-icon"></i>
+          </div>
+          <div class="faq-answer">
+            GITAM CareerHub supports all major engineering branches including Computer Science (CSE), Artificial Intelligence & Machine Learning (AIML), Electronics & Communication (ECE), Electrical & Electronics (EEE), Mechanical Engineering, Robotics & Automation, and VLSI Design.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>How does the AI Mentor work?</span>
+            <i class="fas fa-chevron-down faq-toggle-icon"></i>
+          </div>
+          <div class="faq-answer">
+            Our AI Mentor is trained on your exact academic profile, branch curriculum, completed projects, and target companies. It provides tailored project recommendations, resume bullet point enhancements, and mock interview coaching.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Does the platform track placement drive eligibility automatically?</span>
+            <i class="fas fa-chevron-down faq-toggle-icon"></i>
+          </div>
+          <div class="faq-answer">
+            Yes! The Internship & Placement Engine dynamically evaluates your branch, semester, CGPA, and readiness score against company criteria, letting you apply in one click with instant status tracking.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="logo-wrapper" id="footer-logo">
+            <div class="logo-icon">G</div>
+            <div class="logo-text">GITAM <span>CareerHub</span></div>
+          </a>
+          <p>
+            The official Career Command Center for GITAM University engineering students. Guiding future engineers from Day 1 to Graduation.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Platform</h4>
+          <ul class="footer-links">
+            <li><a href="#journey">Career Journey</a></li>
+            <li><a href="#features">Engine Features</a></li>
+            <li><a href="#roadmaps">Branch Roadmaps</a></li>
+            <li><a href="#calculator">Readiness Calculator</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Recruiters</h4>
+          <ul class="footer-links">
+            <li><a href="#companies">Hiring Partners</a></li>
+            <li><a href="#companies">Placement Drives</a></li>
+            <li><a href="#about">Verification System</a></li>
+            <li><a href="#faq">Enterprise CMS</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact GITAM</h4>
+          <ul class="footer-links">
+            <li><a href="#"><i class="fas fa-envelope"></i> careerhub@gitam.edu</a></li>
+            <li><a href="#"><i class="fas fa-phone"></i> +91 (891) 2840 500</a></li>
+            <li><a href="#"><i class="fas fa-map-marker-alt"></i> Visakhapatnam | Hyderabad | Bengaluru</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 GITAM University. All rights reserved. Built for Engineering Excellence.</div>
+        <div style="display: flex; gap: 20px;">
+          <a href="#" style="color: var(--color-text-subtle); text-decoration: none;">Privacy Policy</a>
+          <a href="#" style="color: var(--color-text-subtle); text-decoration: none;">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Login / Register Modal -->
+  <div class="modal-overlay" id="auth-modal">
+    <div class="modal-card">
+      <button class="modal-close" id="modal-close"><i class="fas fa-times"></i></button>
+
+      <div class="logo-wrapper" style="margin-bottom: 20px;">
+        <div class="logo-icon">G</div>
+        <div class="logo-text">GITAM <span>CareerHub</span></div>
+      </div>
+
+      <h3 style="font-size: 1.5rem; margin-bottom: 8px;">Access Your Command Center</h3>
+      <p style="color: var(--color-text-muted); font-size: 0.9rem; margin-bottom: 24px;">Sign in with your GITAM University credentials.</p>
+
+      <form id="auth-form" onsubmit="event.preventDefault(); alert('Sign in successful! Redirecting to Career Dashboard...'); document.getElementById('auth-modal').classList.remove('active');">
+        <div class="form-group">
+          <label for="auth-email">GITAM Email Address</label>
+          <input type="email" id="auth-email" class="form-control" placeholder="student@gitam.in" required>
+        </div>
+
+        <div class="form-group">
+          <label for="auth-password">Password</label>
+          <input type="password" id="auth-password" class="form-control" placeholder="••••••••" required>
+        </div>
+
+        <div class="form-group">
+          <label for="auth-role">Role</label>
+          <select id="auth-role" class="form-control">
+            <option value="student">Engineering Student</option>
+            <option value="faculty">Faculty Advisor</option>
+            <option value="placement">Placement Officer</option>
+            <option value="admin">Administrator</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn btn-gold" style="width: 100%; margin-top: 12px;">Sign In to Dashboard</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

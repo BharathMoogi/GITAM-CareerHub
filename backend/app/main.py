@@ -78,9 +78,14 @@ def create_application() -> FastAPI:
     app.add_middleware(RequestLoggingMiddleware)     # Structured request/response logging
     setup_cors(app)                                 # CORS
 
-    # Static file serving for uploaded profile photos
+    # Static file serving for uploaded profile photos and frontend landing page
     os.makedirs(os.path.join("uploads", "profile_photos"), exist_ok=True)
     app.mount("/uploads", StaticFiles(directory="uploads"), name="uploads")
+
+    frontend_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "frontend"))
+    if os.path.exists(frontend_dir):
+        app.mount("/landing", StaticFiles(directory=frontend_dir, html=True), name="landing")
+
 
     # Exception Handlers
     app.add_exception_handler(BaseAppException, app_exception_handler)
