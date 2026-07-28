@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login — GITAM CareerHub</title>
+  <meta name="description" content="Official Student & Alumni Login Portal for GITAM CareerHub — Personalized Career Development Platform.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Login — GITAM CareerHub">
+  <meta property="og:description" content="Your Personalized Career Development Platform.">
+
+  <!-- Fonts & Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+  <div class="login-wrapper">
+
+    <!-- ── LEFT SIDE: Full-Height GITAM Green Panel ────────────────────────── -->
+    <div class="login-left-panel">
+      <!-- Background Ambient Glow & Grid -->
+      <div class="left-bg-grid"></div>
+      <div class="left-ambient-glow glow-green-1"></div>
+      <div class="left-ambient-glow glow-gold-1"></div>
+
+      <!-- Header with GITAM Logo -->
+      <div class="left-header">
+        <a href="index.html" style="text-decoration: none; display: flex; align-items: center; gap: 14px;">
+          <div class="gitam-crest">G</div>
+          <div class="gitam-title-group">
+            <h2>GITAM</h2>
+            <p>CareerHub</p>
+          </div>
+        </a>
+      </div>
+
+      <!-- Main Headline & Tagline -->
+      <div class="left-main-content">
+        <div class="headline-badge">
+          <i class="fas fa-graduation-cap"></i> Student Portal
+        </div>
+
+        <h1 class="left-headline">
+          Welcome to <br>
+          <span>GITAM CareerHub</span>
+        </h1>
+
+        <p class="left-tagline">
+          Your Personalized Career Development Platform.
+        </p>
+
+        <!-- Feature Pills -->
+        <div class="left-feature-pills">
+          <div class="pill-item">
+            <div class="pill-icon"><i class="fas fa-robot"></i></div>
+            <span>RAG AI Mentor</span>
+          </div>
+
+          <div class="pill-item">
+            <div class="pill-icon"><i class="fas fa-map-signs"></i></div>
+            <span>Branch Roadmaps</span>
+          </div>
+
+          <div class="pill-item">
+            <div class="pill-icon"><i class="fas fa-briefcase"></i></div>
+            <span>5-Stage Placement Drives</span>
+          </div>
+
+          <div class="pill-item">
+            <div class="pill-icon"><i class="fas fa-trophy"></i></div>
+            <span>XP & Leaderboards</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Left Footer -->
+      <div class="left-footer">
+        <div>GITAM University</div>
+        <div>Visakhapatnam • Hyderabad • Bengaluru</div>
+      </div>
+    </div>
+
+    <!-- ── RIGHT SIDE: Login Card Panel ─────────────────────────────────── -->
+    <div class="login-right-panel">
+      <div class="login-center-wrapper">
+
+        <!-- Animated Card Entrance -->
+        <div class="login-card" id="login-card">
+
+          <div class="card-header">
+            <h3>Student Login</h3>
+            <p>Access your personalized career command center</p>
+          </div>
+
+          <!-- Alert Container -->
+          <div id="login-alert" style="display: none;"></div>
+
+          <form id="login-form">
+            <!-- Roll Number Input -->
+            <div class="form-group">
+              <label for="roll-number" class="form-label">Roll Number / Registration No.</label>
+              <div class="input-container">
+                <i class="fas fa-id-card input-icon"></i>
+                <input 
+                  type="text" 
+                  id="roll-number" 
+                  class="form-input" 
+                  placeholder="e.g. 2200030001 or student@gitam.in" 
+                  required
+                  autocomplete="username"
+                >
+              </div>
+            </div>
+
+            <!-- Password Input -->
+            <div class="form-group">
+              <label for="password" class="form-label">Password</label>
+              <div class="input-container">
+                <i class="fas fa-lock input-icon"></i>
+                <input 
+                  type="password" 
+                  id="password" 
+                  class="form-input" 
+                  placeholder="••••••••" 
+                  required
+                  autocomplete="current-password"
+                >
+                <button type="button" class="password-toggle" id="toggle-password" aria-label="Toggle password visibility">
+                  <i class="fas fa-eye"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Remember Me & Forgot Password -->
+            <div class="form-options">
+              <label class="checkbox-label">
+                <input type="checkbox" id="remember-me" class="checkbox-input" checked>
+                <span>Remember me</span>
+              </label>
+
+              <a href="#" class="forgot-link" onclick="alert('Password reset link has been sent to your registered GITAM email address.'); return false;">Forgot Password?</a>
+            </div>
+
+            <!-- Login Button -->
+            <button type="submit" class="btn-login" id="login-submit-btn">
+              <span>Sign In to Dashboard</span>
+              <i class="fas fa-arrow-right"></i>
+            </button>
+          </form>
+
+          <!-- Divider -->
+          <div class="divider">
+            <span>Or Continue With</span>
+          </div>
+
+          <!-- SSO Button -->
+          <button type="button" class="btn-sso" onclick="alert('Redirecting to GITAM Single Sign-On (SSO)...');">
+            <i class="fab fa-microsoft" style="color: #00A4EF; font-size: 1.1rem;"></i>
+            <span>Sign in with GITAM Email</span>
+          </button>
+
+          <!-- Security Message -->
+          <div class="security-notice">
+            <i class="fas fa-shield-halved"></i>
+            <div>Protected by GITAM University Enterprise Security & 256-bit SSL Encryption.</div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Minimal Right Footer -->
+      <footer class="right-footer">
+        <div>
+          © 2026 GITAM University. All rights reserved.
+        </div>
+        <div style="margin-top: 6px;">
+          <a href="#">Privacy Policy</a> • 
+          <a href="#">Terms of Use</a> • 
+          <a href="#">Technical Support</a>
+        </div>
+      </footer>
+    </div>
+
+  </div>
+
+  <script src="login.js"></script>
+</body>
+</html>

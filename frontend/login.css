@@ -1,0 +1,549 @@
+/* ==========================================================================
+   GITAM CareerHub — Dedicated Login Page CSS
+   Theme: GITAM Deep Emerald Green (#006837 / #064E3B / #047857), Gold (#E5A93C)
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
+
+:root {
+  /* GITAM Green Palette */
+  --gitam-green-dark: #022C22;
+  --gitam-green-deep: #064E3B;
+  --gitam-green-primary: #006837;
+  --gitam-green-mid: #047857;
+  --gitam-green-bright: #10B981;
+  --gitam-green-glow: rgba(16, 185, 129, 0.35);
+
+  /* Accents */
+  --gitam-gold: #E5A93C;
+  --gitam-gold-glow: rgba(229, 169, 60, 0.3);
+  --gitam-navy: #030B17;
+  --color-surface: #07172A;
+  --color-card-bg: rgba(10, 25, 45, 0.75);
+  --color-card-border: rgba(255, 255, 255, 0.12);
+  --color-card-hover: rgba(16, 185, 129, 0.4);
+
+  --color-text-primary: #F8FAFC;
+  --color-text-muted: #94A3B8;
+  --color-text-subtle: #64748B;
+
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body, html {
+  height: 100%;
+  font-family: var(--font-body);
+  background-color: var(--gitam-navy);
+  color: var(--color-text-primary);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+.login-wrapper {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* ── LEFT SIDE: Full-Height GITAM Green Panel ────────────────────────── */
+.login-left-panel {
+  flex: 1;
+  background: linear-gradient(135deg, var(--gitam-green-dark) 0%, var(--gitam-green-deep) 45%, var(--gitam-green-primary) 100%);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 60px;
+  overflow: hidden;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Background Animated Tech Grid & Particles */
+.left-bg-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(rgba(16, 185, 129, 0.15) 1px, transparent 1px),
+    radial-gradient(rgba(229, 169, 60, 0.1) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: 0 0, 20px 20px;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.left-ambient-glow {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+}
+
+.glow-green-1 {
+  top: -150px;
+  left: -150px;
+  background: radial-gradient(circle, var(--gitam-green-bright), transparent 70%);
+  opacity: 0.25;
+}
+
+.glow-gold-1 {
+  bottom: -150px;
+  right: -150px;
+  background: radial-gradient(circle, var(--gitam-gold), transparent 70%);
+  opacity: 0.2;
+}
+
+/* Left Content Header */
+.left-header {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.gitam-crest {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--gitam-gold), #B47814);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: #022C22;
+  box-shadow: var(--gitam-gold-glow);
+}
+
+.gitam-title-group h2 {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: white;
+  letter-spacing: -0.02em;
+}
+
+.gitam-title-group p {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Left Main Headline Section */
+.left-main-content {
+  position: relative;
+  z-index: 2;
+  margin: auto 0;
+  max-width: 540px;
+}
+
+.headline-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: var(--gitam-green-bright);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 24px;
+}
+
+.left-headline {
+  font-family: var(--font-heading);
+  font-size: 3.25rem;
+  font-weight: 800;
+  line-height: 1.15;
+  color: white;
+  margin-bottom: 16px;
+  letter-spacing: -0.03em;
+}
+
+.left-headline span {
+  background: linear-gradient(135deg, #FDE68A 0%, var(--gitam-gold) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.left-tagline {
+  font-size: 1.2rem;
+  color: rgba(248, 250, 252, 0.85);
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+/* Feature Badges Grid on Left Panel */
+.left-feature-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.pill-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 18px;
+  border-radius: 12px;
+  background: rgba(2, 44, 34, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: white;
+  transition: transform 0.3s ease;
+}
+
+.pill-item:hover {
+  transform: translateY(-3px);
+  border-color: var(--gitam-green-bright);
+}
+
+.pill-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  background: rgba(16, 185, 129, 0.2);
+  color: var(--gitam-green-bright);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+}
+
+/* Left Footer */
+.left-footer {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.85rem;
+}
+
+/* ── RIGHT SIDE: Login Form Panel ──────────────────────────────────── */
+.login-right-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 40px;
+  background: var(--gitam-navy);
+  position: relative;
+}
+
+.login-center-wrapper {
+  margin: auto auto;
+  width: 100%;
+  max-width: 440px;
+}
+
+/* Animated Card Entrance */
+.login-card {
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-card-border);
+  border-radius: 24px;
+  padding: 44px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(20px);
+  animation: cardEntrance 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+  transform: translateY(30px) scale(0.97);
+}
+
+@keyframes cardEntrance {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.97);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.card-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.card-header h3 {
+  font-family: var(--font-heading);
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 8px;
+}
+
+.card-header p {
+  color: var(--color-text-muted);
+  font-size: 0.925rem;
+}
+
+/* Form Controls */
+.form-group {
+  margin-bottom: 22px;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 8px;
+}
+
+.input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  left: 16px;
+  color: var(--color-text-muted);
+  font-size: 1rem;
+  pointer-events: none;
+  transition: color 0.2s ease;
+}
+
+.form-input {
+  width: 100%;
+  padding: 14px 16px 14px 46px;
+  border-radius: 12px;
+  background: rgba(3, 11, 23, 0.75);
+  border: 1px solid var(--color-card-border);
+  color: white;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  outline: none;
+  transition: all 0.25s ease;
+}
+
+.form-input:focus {
+  border-color: var(--gitam-green-bright);
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.15);
+  background: rgba(3, 11, 23, 0.95);
+}
+
+.form-input:focus + .input-icon,
+.input-container:focus-within .input-icon {
+  color: var(--gitam-green-bright);
+}
+
+.password-toggle {
+  position: absolute;
+  right: 16px;
+  background: none;
+  border: none;
+  color: var(--color-text-muted);
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.password-toggle:hover {
+  color: white;
+}
+
+/* Options Row (Remember Me + Forgot Password) */
+.form-options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 28px;
+  font-size: 0.875rem;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkbox-input {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  accent-color: var(--gitam-green-bright);
+  cursor: pointer;
+}
+
+.forgot-link {
+  color: var(--gitam-gold);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.forgot-link:hover {
+  color: #FDE68A;
+  text-decoration: underline;
+}
+
+/* Submit Button */
+.btn-login {
+  width: 100%;
+  padding: 16px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--gitam-green-primary) 0%, var(--gitam-green-mid) 100%);
+  color: white;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.05rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: var(--gitam-green-glow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btn-login:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(16, 185, 129, 0.4);
+  background: linear-gradient(135deg, var(--gitam-green-mid) 0%, var(--gitam-green-bright) 100%);
+}
+
+.btn-login:active {
+  transform: translateY(0);
+}
+
+/* Divider */
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 28px 0;
+  color: var(--color-text-subtle);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.divider::before, .divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid var(--color-card-border);
+}
+
+.divider span {
+  padding: 0 14px;
+}
+
+/* SSO Button */
+.btn-sso {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--color-card-border);
+  color: white;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.25s ease;
+}
+
+.btn-sso:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+/* Security Banner */
+.security-notice {
+  margin-top: 28px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--gitam-green-bright);
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+
+.security-notice i {
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+/* Minimal Right Footer */
+.right-footer {
+  text-align: center;
+  color: var(--color-text-subtle);
+  font-size: 0.8rem;
+  margin-top: 32px;
+}
+
+.right-footer a {
+  color: var(--color-text-muted);
+  text-decoration: none;
+  margin: 0 8px;
+}
+
+.right-footer a:hover {
+  color: var(--gitam-gold);
+}
+
+/* ── Responsive Breakpoints ────────────────────────────────────────── */
+@media (max-width: 992px) {
+  .login-wrapper {
+    flex-direction: column;
+  }
+
+  .login-left-panel {
+    padding: 40px 28px;
+    min-height: 360px;
+  }
+
+  .left-headline {
+    font-size: 2.25rem;
+  }
+
+  .left-tagline {
+    font-size: 1rem;
+    margin-bottom: 24px;
+  }
+
+  .login-right-panel {
+    padding: 32px 20px;
+  }
+
+  .login-card {
+    padding: 32px 24px;
+  }
+}
