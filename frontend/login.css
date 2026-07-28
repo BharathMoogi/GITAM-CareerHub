@@ -6,16 +6,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
 :root {
-  --mygitam-green: #C8A878;
-  --mygitam-green-dark: #A88A5A;
-  --mygitam-green-light: #D4BC96;
-  --mygitam-cream: #FDF6EC;
-  --mygitam-cream-border: #EFE0C8;
-  --mygitam-cream-active: #FFF9F2;
-  --mygitam-input-bg: #FAF5EE;
-  --mygitam-text-green: #8A6A40;
+  --mygitam-green: #007A63;
+  --mygitam-green-dark: #005C45;
+  --mygitam-green-light: #009B7A;
+  --mygitam-cream: #F5E6CE;
+  --mygitam-cream-border: #EDD9B5;
+  --mygitam-cream-active: #FFF8EE;
+  --mygitam-input-bg: #EBF2FA;
+  --mygitam-text-green: #007A63;
   --mygitam-gray: #666666;
-  --mygitam-border-gray: #D4BC96;
+  --mygitam-border-gray: #B8D5CB;
 }
 
 *, *::before, *::after {
@@ -40,10 +40,10 @@ html, body {
   width: 100vw;
 }
 
-/* ── LEFT PANEL: Warm Beige/Champagne ─────────────────────────────── */
+/* ── LEFT PANEL: My-GITAM Teal Green (#007A63) ─────────────────────── */
 .mygitam-left {
   flex: 1.35;
-  background: linear-gradient(160deg, #C8A878 0%, #A88A5A 100%);
+  background-color: #007A63;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -61,7 +61,6 @@ html, body {
   margin-top: 20px;
   margin-bottom: 60px;
   text-align: center;
-  text-shadow: 0 2px 8px rgba(120, 80, 20, 0.25);
 }
 
 /* Role Selector Cards Container */
@@ -75,7 +74,7 @@ html, body {
 
 .role-card {
   flex: 1;
-  background-color: rgba(255, 248, 235, 0.92);
+  background-color: #F5E6CE;
   border-radius: 20px;
   padding: 32px 24px;
   display: flex;
@@ -86,23 +85,23 @@ html, body {
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   border: 3px solid transparent;
-  box-shadow: 0 10px 25px rgba(120, 80, 20, 0.2);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
 .role-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 15px 35px rgba(120, 80, 20, 0.3);
-  background-color: #FFFFFF;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+  background-color: #FFF8EE;
 }
 
 .role-card.active {
   border-color: #FFFFFF;
-  box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
   background-color: #FFFFFF;
 }
 
 .role-card-title {
-  color: #8A6A40;
+  color: #007A63;
   font-size: 1.45rem;
   font-weight: 600;
   margin-bottom: 20px;
@@ -138,11 +137,11 @@ html, body {
 .login-border-box {
   width: 100%;
   max-width: 420px;
-  border: 1.5px solid #D4BC96;
+  border: 1.5px solid #B8D5CB;
   border-radius: 8px;
   padding: 48px 40px 36px 40px;
   background-color: #FFFFFF;
-  box-shadow: 0 4px 20px rgba(168, 138, 90, 0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
 }
 
 /* Official GITAM Logo Header */
@@ -202,8 +201,8 @@ html, body {
 }
 
 .mygitam-input:focus {
-  background-color: #F5EDD8;
-  box-shadow: 0 0 0 2px rgba(200, 168, 120, 0.4);
+  background-color: #E2ECF8;
+  box-shadow: 0 0 0 2px rgba(0, 122, 99, 0.25);
 }
 
 .mygitam-input::placeholder {
@@ -238,7 +237,7 @@ html, body {
   border-radius: 2px;
   background-color: #FFFFFF;
   cursor: pointer;
-  accent-color: #C8A878;
+  accent-color: #007A63;
 }
 
 .recaptcha-label-text {
@@ -269,7 +268,7 @@ html, body {
   min-width: 100px;
   margin: 12px auto 0 auto;
   padding: 10px 28px;
-  background-color: #C8A878;
+  background-color: #005C45;
   color: #FFFFFF;
   border: none;
   border-radius: 6px;
@@ -278,14 +277,12 @@ html, body {
   font-size: 0.9rem;
   letter-spacing: 0.05em;
   cursor: pointer;
-  transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
-  box-shadow: 0 2px 8px rgba(168, 138, 90, 0.4);
+  transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
 .btn-mygitam-submit:hover {
-  background-color: #A88A5A;
+  background-color: #004634;
   transform: translateY(-1px);
-  box-shadow: 0 4px 14px rgba(168, 138, 90, 0.5);
 }
 
 /* Footer Links */
@@ -298,7 +295,7 @@ html, body {
 }
 
 .mygitam-bottom-links a {
-  color: #C8A878;
+  color: #007A63;
   text-decoration: none;
   font-weight: 600;
   transition: opacity 0.2s ease;
