@@ -43,6 +43,9 @@ from app.database.seed_gamification import (
     LEVELS_SEED, ACHIEVEMENTS_SEED, BADGES_SEED,
     DAILY_CHALLENGES_SEED, WEEKLY_CHALLENGES_SEED, MONTHLY_CHALLENGES_SEED, REWARDS_SEED
 )
+from app.models.user import User
+from app.models.student import Student
+from app.core.security import get_password_hash
 import app.models  # noqa: F401
 
 logger = logging.getLogger("app.database.init_db")
@@ -683,8 +686,43 @@ async def seed_master_data(session: AsyncSession) -> None:
         if not existing.scalars().first():
             session.add(Reward(**r_data))
 
+    # Seed Default Student User for immediate login
+    student_user = await session.execute(select(User).where(User.email == "2023003719@gitam.edu"))
+    if not student_user.scalars().first():
+        ece_branch = await session.execute(select(Branch).where(Branch.code == "ECE"))
+        branch_obj = ece_branch.scalars().first()
+        target_role = await session.execute(select(TargetRole).where(TargetRole.title == "Embedded Engineer"))
+        role_obj = target_role.scalars().first()
+
+        if branch_obj and role_obj:
+            demo_user = User(
+                email="2023003719@gitam.edu",
+                hashed_password=get_password_hash("password123"),
+                full_name="Bharath M",
+                role="student",
+                is_active=True,
+            )
+            session.add(demo_user)
+            await session.flush()
+
+            demo_student = Student(
+                user_id=demo_user.id,
+                full_name="Bharath M",
+                email="2023003719@gitam.edu",
+                roll_number="2023003719",
+                phone_number="+91 9876543210",
+                branch_id=branch_obj.id,
+                target_role_id=role_obj.id,
+                current_year=3,
+                semester=5,
+                github_url="https://github.com/BharathMoogi",
+                linkedin_url="https://linkedin.com/in/bharathmoogi",
+                is_active=True,
+            )
+            session.add(demo_student)
+
     await session.commit()
-    logger.info("Gamification Master Seed: done.")
+    logger.info("Gamification & User Master Seed: done.")
 
 
 async def init_db(engine: AsyncEngine) -> None:
