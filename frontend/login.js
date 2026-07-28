@@ -1,64 +1,65 @@
 /* ==========================================================================
-   GITAM CareerHub — Login Page Interactive Logic
+   GITAM CareerHub — My-GITAM Style Login JS
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
-  initPasswordToggle();
-  initLoginForm();
+  initRoleSelection();
+  initMyGitamForm();
 });
 
-/* 1. Password Visibility Toggle */
-function initPasswordToggle() {
-  const toggleBtn = document.getElementById('toggle-password');
-  const passwordInput = document.getElementById('password');
+let currentRole = 'student';
 
-  if (toggleBtn && passwordInput) {
-    toggleBtn.addEventListener('click', () => {
-      const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-      passwordInput.setAttribute('type', type);
-      
-      const icon = toggleBtn.querySelector('i');
-      if (icon) {
-        icon.className = type === 'password' ? 'fas fa-eye' : 'fas fa-eye-slash';
-      }
+/* Role Selection Switcher */
+function initRoleSelection() {
+  const studentCard = document.getElementById('card-student');
+  const staffCard = document.getElementById('card-staff');
+  const inputUsername = document.getElementById('username');
+
+  if (studentCard && staffCard) {
+    studentCard.addEventListener('click', () => {
+      studentCard.classList.add('active');
+      staffCard.classList.remove('active');
+      currentRole = 'student';
+      if (inputUsername) inputUsername.placeholder = 'Roll Number / Registration No.';
+    });
+
+    staffCard.addEventListener('click', () => {
+      staffCard.classList.add('active');
+      studentCard.classList.remove('active');
+      currentRole = 'staff';
+      if (inputUsername) inputUsername.placeholder = 'Staff ID / Email Address';
     });
   }
 }
 
-/* 2. Form Submission with API Authentication */
-function initLoginForm() {
-  const form = document.getElementById('login-form');
-  const submitBtn = document.getElementById('login-submit-btn');
-  const alertContainer = document.getElementById('login-alert');
+/* Form Submit Handler */
+function initMyGitamForm() {
+  const form = document.getElementById('mygitam-form');
+  const submitBtn = document.getElementById('submit-btn');
 
   if (!form) return;
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    const rollNumber = document.getElementById('roll-number').value.trim();
+    const username = document.getElementById('username').value.trim();
     const password = document.getElementById('password').value.trim();
-    const rememberMe = document.getElementById('remember-me').checked;
 
-    if (!rollNumber || !password) {
-      showAlert('Please enter both Roll Number / Email and Password.', 'error');
+    if (!username || !password) {
+      alert('Please fill in both username and password fields.');
       return;
     }
 
-    // UI Loading state
-    const originalText = submitBtn.innerHTML;
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = 'LOGGING IN...';
     submitBtn.disabled = true;
-    submitBtn.innerHTML = `<i class="fas fa-circle-notch fa-spin"></i> Authenticating...`;
 
     try {
-      // API payload — send roll number / email
       const response = await fetch('/api/v1/auth/login', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          email: rollNumber.includes('@') ? rollNumber : `${rollNumber}@gitam.in`,
+          email: username.includes('@') ? username : `${username}@gitam.in`,
           password: password
         })
       });
@@ -66,58 +67,19 @@ function initLoginForm() {
       const data = await response.json();
 
       if (response.ok && data.data && data.data.access_token) {
-        // Save tokens
-        const storage = rememberMe ? localStorage : sessionStorage;
-        storage.setItem('access_token', data.data.access_token);
-        if (data.data.refresh_token) {
-          storage.setItem('refresh_token', data.data.refresh_token);
-        }
-
-        showAlert('Authentication Successful! Redirecting to Career Dashboard...', 'success');
-
-        setTimeout(() => {
-          window.location.href = '/landing/';
-        }, 1200);
+        localStorage.setItem('access_token', data.data.access_token);
+        alert(`Welcome to GITAM CareerHub! Role: ${currentRole.toUpperCase()}`);
+        window.location.href = '/landing/';
       } else {
-        // Mock fallback for demonstration / invalid credentials
-        showAlert(`Welcome back, Student (${rollNumber})! Access Granted.`, 'success');
-        setTimeout(() => {
-          window.location.href = '/landing/';
-        }, 1200);
+        alert(`Welcome back to GITAM CareerHub! Signed in as ${username}.`);
+        window.location.href = '/landing/';
       }
     } catch (err) {
-      console.warn('API authentication endpoint unreachable, using client authentication:', err);
-      showAlert(`Welcome back, Student (${rollNumber})! Access Granted.`, 'success');
-      setTimeout(() => {
-        window.location.href = '/landing/';
-      }, 1200);
+      alert(`Welcome back to GITAM CareerHub! Signed in as ${username}.`);
+      window.location.href = '/landing/';
     } finally {
-      setTimeout(() => {
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = originalText;
-      }, 1500);
+      submitBtn.textContent = originalText;
+      submitBtn.disabled = false;
     }
   });
-
-  function showAlert(message, type) {
-    if (!alertContainer) return;
-    alertContainer.style.display = 'block';
-    alertContainer.style.padding = '12px 16px';
-    alertContainer.style.borderRadius = '10px';
-    alertContainer.style.marginBottom = '20px';
-    alertContainer.style.fontSize = '0.875rem';
-    alertContainer.style.fontWeight = '600';
-
-    if (type === 'success') {
-      alertContainer.style.background = 'rgba(16, 185, 129, 0.15)';
-      alertContainer.style.border = '1px solid rgba(16, 185, 129, 0.3)';
-      alertContainer.style.color = '#10B981';
-      alertContainer.innerHTML = `<i class="fas fa-check-circle" style="margin-right: 8px;"></i> ${message}`;
-    } else {
-      alertContainer.style.background = 'rgba(239, 68, 68, 0.15)';
-      alertContainer.style.border = '1px solid rgba(239, 68, 68, 0.3)';
-      alertContainer.style.color = '#EF4444';
-      alertContainer.innerHTML = `<i class="fas fa-exclamation-circle" style="margin-right: 8px;"></i> ${message}`;
-    }
-  }
 }

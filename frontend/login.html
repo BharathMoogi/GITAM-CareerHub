@@ -4,184 +4,158 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login — GITAM CareerHub</title>
-  <meta name="description" content="Official Student & Alumni Login Portal for GITAM CareerHub — Personalized Career Development Platform.">
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Login — GITAM CareerHub">
-  <meta property="og:description" content="Your Personalized Career Development Platform.">
-
-  <!-- Fonts & Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <meta name="description" content="Official My-GITAM CareerHub Portal. Login for Students and Staff.">
   <link rel="stylesheet" href="login.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
 
-  <div class="login-wrapper">
+  <div class="mygitam-container">
 
-    <!-- ── LEFT SIDE: Full-Height GITAM Green Panel ────────────────────────── -->
-    <div class="login-left-panel">
-      <!-- Background Ambient Glow & Grid -->
-      <div class="left-bg-grid"></div>
-      <div class="left-ambient-glow glow-green-1"></div>
-      <div class="left-ambient-glow glow-gold-1"></div>
+    <!-- ── LEFT PANEL: Deep GITAM Green (#005C45) ────────────────────────── -->
+    <div class="mygitam-left">
+      
+      <!-- Brand Header -->
+      <h1 class="mygitam-title">GITAM CareerHub</h1>
 
-      <!-- Header with GITAM Logo -->
-      <div class="left-header">
-        <a href="index.html" style="text-decoration: none; display: flex; align-items: center; gap: 14px;">
-          <div class="gitam-crest">G</div>
-          <div class="gitam-title-group">
-            <h2>GITAM</h2>
-            <p>CareerHub</p>
-          </div>
-        </a>
-      </div>
+      <!-- Role Selector Cards -->
+      <div class="role-cards-wrapper">
+        
+        <!-- Student Role Card -->
+        <div class="role-card active" id="card-student">
+          <h3 class="role-card-title">Student</h3>
+          
+          <!-- Line Art SVG Illustration: Engineering Students -->
+          <svg class="role-svg-illustration" viewBox="0 0 200 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Student 1 (Boy with Backpack) -->
+            <path d="M55 75C61.6274 75 67 69.6274 67 63C67 56.3726 61.6274 51 55 51C48.3726 51 43 56.3726 43 63C43 69.6274 48.3726 75 55 75Z" stroke="#005C45" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M50 51C48 45 52 38 60 40C66 41 68 47 65 52" stroke="#005C45" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M38 100V165M72 100V165" stroke="#005C45" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M38 100C38 88 44 79 55 79C66 79 72 88 72 100" stroke="#005C45" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M30 115C26 125 28 140 32 145" stroke="#005C45" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M28 105C26 112 25 125 27 135" stroke="#005C45" stroke-width="2.5"/>
 
-      <!-- Main Headline & Tagline -->
-      <div class="left-main-content">
-        <div class="headline-badge">
-          <i class="fas fa-graduation-cap"></i> Student Portal
+            <!-- Student 2 (Girl holding books) -->
+            <path d="M125 75C131.627 75 137 69.6274 137 63C137 56.3726 131.627 51 125 51C118.373 51 113 56.3726 113 63C113 69.6274 118.373 75 125 75Z" stroke="#005C45" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M110 55C106 45 115 35 130 38C142 40 144 55 138 65" stroke="#005C45" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M110 100V165M140 100V165" stroke="#005C45" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M108 100C108 88 114 79 125 79C136 79 142 88 142 100" stroke="#005C45" stroke-width="2.5" stroke-linecap="round"/>
+            <!-- Books in arm -->
+            <rect x="115" y="110" width="26" height="30" rx="3" stroke="#005C45" stroke-width="2.5" fill="none"/>
+            <path d="M115 118H141" stroke="#005C45" stroke-width="2"/>
+          </svg>
         </div>
 
-        <h1 class="left-headline">
-          Welcome to <br>
-          <span>GITAM CareerHub</span>
-        </h1>
+        <!-- Staff Role Card -->
+        <div class="role-card" id="card-staff">
+          <h3 class="role-card-title">Staff</h3>
+          
+          <!-- Line Art SVG Illustration: Professional Staff / Faculty -->
+          <svg class="role-svg-illustration" viewBox="0 0 200 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Central Suit Person (Faculty Lead) -->
+            <path d="M100 70C106.627 70 112 64.6274 112 58C112 51.3726 106.627 46 100 46C93.3726 46 88 51.3726 88 58C88 64.6274 93.3726 70 100 70Z" stroke="#005C45" stroke-width="2.5"/>
+            <path d="M82 92C82 81 90 74 100 74C110 74 118 81 118 92V160H82V92Z" stroke="#005C45" stroke-width="2.5"/>
+            <!-- Suit Lapel & Tie -->
+            <path d="M93 74L100 95L107 74" stroke="#005C45" stroke-width="2"/>
+            <path d="M100 95V125" stroke="#005C45" stroke-width="2.5"/>
 
-        <p class="left-tagline">
-          Your Personalized Career Development Platform.
-        </p>
+            <!-- Left Female Staff -->
+            <path d="M50 75C55.5228 75 60 70.5228 60 65C60 59.4772 55.5228 55 50 55C44.4772 55 40 59.4772 40 65C40 70.5228 44.4772 75 50 75Z" stroke="#005C45" stroke-width="2.5"/>
+            <path d="M36 100C36 90 42 82 50 82C58 82 64 90 64 100V160H36V100Z" stroke="#005C45" stroke-width="2.5"/>
+            <!-- Hair -->
+            <path d="M38 60C36 50 45 42 55 45" stroke="#005C45" stroke-width="2.5"/>
 
-        <!-- Feature Pills -->
-        <div class="left-feature-pills">
-          <div class="pill-item">
-            <div class="pill-icon"><i class="fas fa-robot"></i></div>
-            <span>RAG AI Mentor</span>
-          </div>
-
-          <div class="pill-item">
-            <div class="pill-icon"><i class="fas fa-map-signs"></i></div>
-            <span>Branch Roadmaps</span>
-          </div>
-
-          <div class="pill-item">
-            <div class="pill-icon"><i class="fas fa-briefcase"></i></div>
-            <span>5-Stage Placement Drives</span>
-          </div>
-
-          <div class="pill-item">
-            <div class="pill-icon"><i class="fas fa-trophy"></i></div>
-            <span>XP & Leaderboards</span>
-          </div>
+            <!-- Right Staff Member -->
+            <path d="M150 75C155.523 75 160 70.5228 160 65C160 59.4772 155.523 55 150 55C144.477 55 140 59.4772 140 65C140 70.5228 144.477 75 150 75Z" stroke="#005C45" stroke-width="2.5"/>
+            <path d="M136 100C136 90 142 82 150 82C158 82 164 90 164 100V160H136V100Z" stroke="#005C45" stroke-width="2.5"/>
+          </svg>
         </div>
+
       </div>
 
-      <!-- Left Footer -->
-      <div class="left-footer">
-        <div>GITAM University</div>
-        <div>Visakhapatnam • Hyderabad • Bengaluru</div>
-      </div>
+      <!-- Staircase Architectural Wave Graphic (Bottom Left) -->
+      <svg class="staircase-lines" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="-20" cy="320" r="120" stroke="#FFFFFF" stroke-width="1.5" opacity="0.3"/>
+        <circle cx="-20" cy="320" r="140" stroke="#FFFFFF" stroke-width="1.5" opacity="0.3"/>
+        <circle cx="-20" cy="320" r="160" stroke="#FFFFFF" stroke-width="1.5" opacity="0.3"/>
+        <circle cx="-20" cy="320" r="180" stroke="#FFFFFF" stroke-width="1.5" opacity="0.3"/>
+        <circle cx="-20" cy="320" r="200" stroke="#FFFFFF" stroke-width="1.5" opacity="0.3"/>
+        <circle cx="-20" cy="320" r="220" stroke="#FFFFFF" stroke-width="1.5" opacity="0.3"/>
+        <circle cx="-20" cy="320" r="240" stroke="#FFFFFF" stroke-width="1.5" opacity="0.3"/>
+        <circle cx="-20" cy="320" r="260" stroke="#FFFFFF" stroke-width="1.5" opacity="0.3"/>
+        <circle cx="-20" cy="320" r="280" stroke="#FFFFFF" stroke-width="1.5" opacity="0.3"/>
+      </svg>
     </div>
 
-    <!-- ── RIGHT SIDE: Login Card Panel ─────────────────────────────────── -->
-    <div class="login-right-panel">
-      <div class="login-center-wrapper">
+    <!-- ── RIGHT PANEL: Clean White with Green Border Box ──────────────── -->
+    <div class="mygitam-right">
+      <div class="login-border-box">
+        
+        <!-- Official GITAM Logo Header -->
+        <div class="gitam-header-logo">
+          <!-- Emblem Bird Graphic -->
+          <svg class="gitam-bird-logo" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="40" cy="40" r="38" fill="#005C45"/>
+            <!-- Bird / Leaf Wing Swirls -->
+            <path d="M40 18C48 24 55 35 50 48C45 61 28 62 22 50C16 38 28 22 40 18Z" fill="#FFFFFF"/>
+            <path d="M40 25C45 30 50 38 46 47C42 56 30 57 26 48C22 39 31 28 40 25Z" fill="#005C45"/>
+            <path d="M42 32C46 35 48 40 45 46C42 52 34 53 31 47C28 41 35 34 42 32Z" fill="#FFFFFF"/>
+          </svg>
 
-        <!-- Animated Card Entrance -->
-        <div class="login-card" id="login-card">
-
-          <div class="card-header">
-            <h3>Student Login</h3>
-            <p>Access your personalized career command center</p>
+          <div class="gitam-text-brand">
+            <span class="brand-gitam">GITAM</span>
+            <span class="brand-subtext">DEEMED TO BE UNIVERSITY</span>
           </div>
-
-          <!-- Alert Container -->
-          <div id="login-alert" style="display: none;"></div>
-
-          <form id="login-form">
-            <!-- Roll Number Input -->
-            <div class="form-group">
-              <label for="roll-number" class="form-label">Roll Number / Registration No.</label>
-              <div class="input-container">
-                <i class="fas fa-id-card input-icon"></i>
-                <input 
-                  type="text" 
-                  id="roll-number" 
-                  class="form-input" 
-                  placeholder="e.g. 2200030001 or student@gitam.in" 
-                  required
-                  autocomplete="username"
-                >
-              </div>
-            </div>
-
-            <!-- Password Input -->
-            <div class="form-group">
-              <label for="password" class="form-label">Password</label>
-              <div class="input-container">
-                <i class="fas fa-lock input-icon"></i>
-                <input 
-                  type="password" 
-                  id="password" 
-                  class="form-input" 
-                  placeholder="••••••••" 
-                  required
-                  autocomplete="current-password"
-                >
-                <button type="button" class="password-toggle" id="toggle-password" aria-label="Toggle password visibility">
-                  <i class="fas fa-eye"></i>
-                </button>
-              </div>
-            </div>
-
-            <!-- Remember Me & Forgot Password -->
-            <div class="form-options">
-              <label class="checkbox-label">
-                <input type="checkbox" id="remember-me" class="checkbox-input" checked>
-                <span>Remember me</span>
-              </label>
-
-              <a href="#" class="forgot-link" onclick="alert('Password reset link has been sent to your registered GITAM email address.'); return false;">Forgot Password?</a>
-            </div>
-
-            <!-- Login Button -->
-            <button type="submit" class="btn-login" id="login-submit-btn">
-              <span>Sign In to Dashboard</span>
-              <i class="fas fa-arrow-right"></i>
-            </button>
-          </form>
-
-          <!-- Divider -->
-          <div class="divider">
-            <span>Or Continue With</span>
-          </div>
-
-          <!-- SSO Button -->
-          <button type="button" class="btn-sso" onclick="alert('Redirecting to GITAM Single Sign-On (SSO)...');">
-            <i class="fab fa-microsoft" style="color: #00A4EF; font-size: 1.1rem;"></i>
-            <span>Sign in with GITAM Email</span>
-          </button>
-
-          <!-- Security Message -->
-          <div class="security-notice">
-            <i class="fas fa-shield-halved"></i>
-            <div>Protected by GITAM University Enterprise Security & 256-bit SSL Encryption.</div>
-          </div>
-
         </div>
+
+        <!-- Login Form -->
+        <form class="mygitam-form" id="mygitam-form">
+          <input 
+            type="text" 
+            id="username" 
+            class="mygitam-input" 
+            placeholder="Roll Number / Registration No." 
+            value="2023003719"
+            required
+          >
+
+          <input 
+            type="password" 
+            id="password" 
+            class="mygitam-input" 
+            placeholder="••••••••" 
+            value="••••••••"
+            required
+          >
+
+          <!-- reCAPTCHA Box -->
+          <div class="recaptcha-card">
+            <label class="recaptcha-left">
+              <input type="checkbox" class="recaptcha-checkbox" id="recaptcha-check" checked>
+              <span class="recaptcha-label-text">I'm not a robot</span>
+            </label>
+
+            <div class="recaptcha-right">
+              <svg class="recaptcha-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M24 6C14.0589 6 6 14.0589 6 24C6 33.9411 14.0589 42 24 42C33.9411 42 42 33.9411 42 24" stroke="#4A90E2" stroke-width="4" stroke-linecap="round"/>
+                <path d="M38 14L42 24L32 24" fill="#4A90E2"/>
+              </svg>
+              <span>reCAPTCHA</span>
+              <span style="font-size: 0.5rem; color: #888;">Privacy - Terms</span>
+            </div>
+          </div>
+
+          <!-- Submit LOGIN Button -->
+          <button type="submit" class="btn-mygitam-submit" id="submit-btn">LOGIN</button>
+
+          <!-- Footer Links -->
+          <div class="mygitam-bottom-links">
+            <a href="#" onclick="alert('Reset link sent to registered email.'); return false;">Reset password</a>
+            <a href="#" onclick="alert('Contacting GITAM CATS Support...'); return false;">Contact CATS</a>
+          </div>
+        </form>
 
       </div>
-
-      <!-- Minimal Right Footer -->
-      <footer class="right-footer">
-        <div>
-          © 2026 GITAM University. All rights reserved.
-        </div>
-        <div style="margin-top: 6px;">
-          <a href="#">Privacy Policy</a> • 
-          <a href="#">Terms of Use</a> • 
-          <a href="#">Technical Support</a>
-        </div>
-      </footer>
     </div>
 
   </div>
